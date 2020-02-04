@@ -1,0 +1,188 @@
+/* Colors
+
+red    red
+green  #33cc33
+blue   #1a75ff
+violet #9933ff;
+brown  #663300
+yellow #ffff33
+orange #ff9900
+black  black
+    
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: wheat;
+}
+
+.tg .tn {
+    border-collapse: collapse;
+    border-spacing: 1;
+}
+
+.tg th {
+    height: 46px;
+    width: 46px;
+    padding: 3px 3px;
+}
+
+.tg td {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 3px 3px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.tn th {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.drum-ball {
+    
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+    height: 200px;
+    width: 200px;
+    margin: 0;
+    
+}
+
+.inner-circle {
+    position: relative;
+    border-radius: 100%;
+    border: 1px solid white;
+    top: 25px;
+    left: 25px;
+    height: 150px;
+    width: 150px;
+}
+
+.random-number {
+    margin: 30px auto;
+    position: relative;
+    border-radius: 100%;
+    height: 90px;
+    width: 90px;
+    background-color: whitesmoke;
+}
+
+.ball-number {
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    margin: auto;
+    display: table;
+    font-size: 3rem;
+    padding: 10px;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+    
+}
+
+.lucky-numbers {
+    
+    background-color: whitesmoke;
+    width: 50%;
+    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+
+.number-box {
+    position: relative;
+    height: 350px;
+    width: 400px;
+   
+}
+
+.number-box img {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+   
+}
+
+
+.columns {
+    position: relative;
+    width: 90%;
+    height: 40px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    border-bottom: 1px solid;
+   
+   
+}
+
+
+.balls-colors {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.circle {
+    border: 1px solid gray;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 9px 0;
+}
+
+.square {
+    text-align: center;
+    padding: 5px 0;
+}
+
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: #33cc33;
+}
+
+.blue {
+    background-color: #1a75ff;
+}
+
+.violet {
+    background-color: #9933ff;
+}
+
+.brown {
+    background-color: #663300;
+}
+
+.yellow {
+    background-color: #ffff33;
+}
+
+.orange {
+    background-color: #ff9900;
+}
+
+.black {
+    background-color: black;
+}
