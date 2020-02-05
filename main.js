@@ -159,6 +159,7 @@ play.addEventListener("click", playGame)
 async function playGame() {
 
 	document.querySelector(".tg").style.display = "none";
+	document.querySelector(".drum-ball").style.display = "block";
 	let num = gen();
 
 	console.log(num)
@@ -185,13 +186,13 @@ async function playGame() {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #9933ff, #000)'
 
 			} if (num[j] === brown[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #663300, #000)'
+				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #8B4513, #000)'
 
 			} if (num[j] === yellow[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ffff33, #000)'
+				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #FFFF00, #000)'
 
 			} if (num[j] === orange[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ff9900, #000)'
+				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ffa500, #000)'
 
 			} if (num[j] === black[n]) {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #000000, #000)'
