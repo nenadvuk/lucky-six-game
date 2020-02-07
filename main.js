@@ -158,20 +158,19 @@ play.addEventListener("click", playGame)
 
 async function playGame() {
 
-	document.querySelector(".tg").style.display = "none";
+	
+	document.querySelector(".tg").style.animation = `bounceOut 1s ease-in`
+	document.querySelector(".random-numbers-box").style.display = "block";
+	document.querySelector(".random-numbers-box").style.animation = `scale  1s ease-in`
 	document.querySelector(".drum-ball").style.display = "block";
 	let num = gen();
 
 	console.log(num)
 
-	/* document.getElementById("res").innerHTML = `${num[i]}`;
-	document.querySelector(".circle").style.animation = "scale .5s alternate ease-in" */
-	/*  else document.getElementById("res").innerHTML = num[i]; */
-
 	for (j = 0; j < num.length; j++) {
 		for (n = 0; n < num.length; n++) {
 			document.getElementById("res").innerHTML = `${num[j]}`;
-			document.querySelector(".drum-ball").style.animation = `scale 3s ${num.length}`
+			document.querySelector(".drum-ball").style.animation = `bounceIn 4s ${num.length}`
 
 			if (num[j] === red[n]) {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
@@ -199,10 +198,7 @@ async function playGame() {
 
 			}
 
-
-
-
-		} await timer(3000)
+		} await timer(4000)
 	}
 
 
