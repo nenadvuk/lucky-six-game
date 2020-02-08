@@ -174,8 +174,10 @@ async function playGame() {
 			
 			setTimeout(function () {
 				document.getElementById(`drawn${j+1}`).innerHTML = `${num[j]}`;
+		
 			}, 3000);
 			document.querySelector(".drum-ball").style.animation = `bounceIn 3s ${num.length}`
+		
 			
 			if (num[j] === red[n]) {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
