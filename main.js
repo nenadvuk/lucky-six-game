@@ -125,7 +125,7 @@ function add() {
 
 	}
 	adder.classList.add("btn-danger");
-
+	console.log(click)
 }
 
 
@@ -159,10 +159,11 @@ play.addEventListener("click", playGame)
 async function playGame() {
 
 	
-	document.querySelector(".tg").style.animation = `bounceOut 1s ease-in`
-	document.querySelector(".random-numbers-box").style.display = "block";
-	document.querySelector(".random-numbers-box").style.animation = `scale  1s ease-in`
+	document.querySelector(".tg").style.animation = `bounceOut 1s ease-in`;
+	document.querySelector(".drawn-numbers-box").style.display = "block";
+	document.querySelector(".drawn-numbers-box").style.animation = `scale  1s ease-in`
 	document.querySelector(".drum-ball").style.display = "block";
+	
 	let num = gen();
 
 	console.log(num)
@@ -170,8 +171,12 @@ async function playGame() {
 	for (j = 0; j < num.length; j++) {
 		for (n = 0; n < num.length; n++) {
 			document.getElementById("res").innerHTML = `${num[j]}`;
-			document.querySelector(".drum-ball").style.animation = `bounceIn 4s ${num.length}`
-
+			
+			setTimeout(function () {
+				document.getElementById(`drawn${j+1}`).innerHTML = `${num[j]}`;
+			}, 3000);
+			document.querySelector(".drum-ball").style.animation = `bounceIn 3s ${num.length}`
+			
 			if (num[j] === red[n]) {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
 
@@ -194,11 +199,11 @@ async function playGame() {
 				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ffa500, #000)'
 
 			} if (num[j] === black[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #000000, #000)'
+				document.querySelector(".drum-ball").style.background = 'linear-gradient(320deg, #000000 0%, #434343 70%);'
 
 			}
 
-		} await timer(4000)
+		} await timer(3000)
 	}
 
 

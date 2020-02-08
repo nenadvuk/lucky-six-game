@@ -21,12 +21,6 @@ body {
     background-color: wheat;
 }
 
-/* .tg .tn {
-    border-collapse: collapse;
-    border-spacing: 1;
-} */
-
-
 
 .tg th {
     height: 46px;
@@ -43,20 +37,14 @@ body {
     cursor: pointer;
 }
 
-/* .tn th {
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    border-bottom: 1px solid;
-} */
-
-.tn td{
+.tn td {
     text-align: center;
     font-size: 14px;
-    padding: 3px 0;
+    padding: 0 0;
     font-family: Arial, sans-serif;
-    height: 46px;
-    width: 46px;
+    height: 36px;
+    width: 36px;
+    padding: 3px 1px;
 }
 
 .tn .sum {
@@ -64,33 +52,38 @@ body {
 }
 
 .drum-ball {
-    
     position: absolute;
-    display: none;
+    display: block;
     border-radius: 100%;
-    height: 180px;
-    width: 180px;
+    height: 150px;
+    width: 150px;
     margin: 0;
-    transition: all 1s;
+   
     
 }
 
+
+/* background-color: #eaf818;
+background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%); */
+/* background-color: #000000;
+background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+ */
 .inner-circle {
     position: relative;
     border-radius: 100%;
     border: 1px solid white;
     top: 15px;
     left: 15px;
-    height: 150px;
-    width: 150px;
+    height: 120px;
+    width: 120px;
 }
 
 .random-number {
-    margin: 30px auto;
+    margin: 20px auto;
     position: relative;
     border-radius: 100%;
-    height: 90px;
-    width: 90px;
+    height: 80px;
+    width: 80px;
     background-color: whitesmoke;
 }
 
@@ -99,49 +92,45 @@ body {
     position: relative;
     margin: auto;
     display: table;
-    font-size: 4rem;
-   
+    font-size: 3.5rem;
 }
 
 @keyframes scale {
-
-   /*  0% {
-        transform: scale(0);
-    } */
-
+    
     0% {
         transform: scale(0);
     }
     100% {
         transform: scale(1);
     }
-    
 }
 
 @keyframes scaleOut {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
-    }
+    from {
+        opacity: 1;
+      }
+    
+      50% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+    
+      to {
+        opacity: 0;
+      }
 }
 
 .lucky-numbers {
-    
+    text-align: start;
     background-color: whitesmoke;
-    width: 50%;
-    height: auto;
+    min-width: 20rem;
     font-family: 'Courier New', Courier, monospace;
-   
 }
 
 .number-box {
-   
     position: relative;
     height: 350px;
     width: 400px;
-   
 }
 
 .number-box img {
@@ -149,23 +138,19 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
-   
 }
-
 
 .columns {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 40px;
     font-family: 'Rubik', sans-serif;
     font-size: 1.5rem;
     border-bottom: 1px solid;
-   
-   
 }
 
-.random-numbers-box {
-    display: none;
+.drawn-numbers-box {
+    display: block;
 }
 
 .balls-colors {
@@ -187,7 +172,6 @@ body {
     text-align: center;
     padding: 5px 0;
 }
-
 
 .red {
     background-color: red;
@@ -221,57 +205,40 @@ body {
     background-color: black;
 }
 
-
-
-    @keyframes bounceIn {
-    0%, 20%, 40%, 60%, 80%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    }
+@keyframes bounceIn {
+   
     0% {
-    opacity: 1;
-    -webkit-transform: scale3d(.1, .1, .1);
-    transform: scale3d(.1, .1, .1);
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 200px, 0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+    
+      30% {
+        opacity: 1;
+        transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 130px, 0);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+
+      }
+      
     }
+
+
+   
+
+
+@keyframes bounceOut {
     20% {
-    -webkit-transform: scale3d(1.1, 1.1, 1.1);
-    transform: scale3d(1.1, 1.1, 1.1);
-    }
-    40% {
-    -webkit-transform: scale3d(.9, .9, .9);
-    transform: scale3d(.9, .9, .9);
-    }
-    60% {
-    opacity: 1;
-    -webkit-transform: scale3d(1.03, 1.03, 1.03);
-    transform: scale3d(1.03, 1.03, 1.03);
-    }
-    80% {
-    -webkit-transform: scale3d(.97, .97, .97);
-    transform: scale3d(.97, .97, .97);
-    }
-    100% {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-    }
-    } 
-
-
-    @keyframes bounceOut {
-        20% {
         -webkit-transform: scale3d(.9, .9, .9);
         transform: scale3d(.9, .9, .9);
-        }
-        50%, 55% {
+    }
+    50%, 55% {
         opacity: 1;
         -webkit-transform: scale3d(1.1, 1.1, 1.1);
         transform: scale3d(1.1, 1.1, 1.1);
-        }
-        100% {
+    }
+    100% {
         opacity: 0;
         -webkit-transform: scale3d(.3, .3, .3);
         transform: scale3d(.3, .3, .3);
-        }
-        } 
-      ×
+    }
+}
