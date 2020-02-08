@@ -63,11 +63,6 @@ body {
 }
 
 
-/* background-color: #eaf818;
-background-image: linear-gradient(315deg, #eaf818 0%, #f6fc9c 74%); */
-/* background-color: #000000;
-background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
- */
 .inner-circle {
     position: relative;
     border-radius: 100%;
