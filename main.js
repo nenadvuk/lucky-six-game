@@ -33,7 +33,7 @@ const checkedFields = document.querySelectorAll("td");
 const adder = document.querySelector("#adder");
 let chosenSix = false;
 let chosenNumbers = [];
-var sortedChosenNumbers = [];
+let sortedChosenNumbers = [];
 let checkedNumbers = 0;
 const play = document.querySelector("#play");
 let count = 1;
@@ -92,7 +92,7 @@ console.log(num)
 function compare() {
 
 	for (let i = 0; i < sortedChosenNumbers.length; i++) {
-		for (j = 0; j < num.length; j++) {
+		for (let j = 0; j < num.length; j++) {
 			if (sortedChosenNumbers[i] === num[j]) {
 				document.querySelector("#col" + index + (i + 1)).style.fontWeight = "1000"
 			}
@@ -104,7 +104,7 @@ function compare() {
 
 }
 
-var index = 0;
+let index = 0;
 adder.addEventListener("click", add)
 
 function add() {
@@ -116,7 +116,7 @@ function add() {
 
 		count++;
 		choise.value = "";
-		for (i = 0; i < chosenNumbers.length; i++) {
+		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
 		}
 		chosenNumbers.splice(0, chosenNumbers.length);
@@ -125,7 +125,7 @@ function add() {
 
 	}
 	adder.classList.add("btn-danger");
-	console.log(click)
+	
 }
 
 
@@ -168,8 +168,8 @@ async function playGame() {
 
 	console.log(num)
 
-	for (j = 0; j < num.length; j++) {
-		for (n = 0; n < num.length; n++) {
+	for (let j = 0; j < num.length; j++) {
+		for (let n = 0; n < num.length; n++) {
 			document.getElementById("res").innerHTML = `${num[j]}`;
 			
 			setTimeout(function () {
