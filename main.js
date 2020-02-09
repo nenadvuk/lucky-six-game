@@ -31,6 +31,9 @@ const black = [8, 16, 24, 32, 40, 48];
 
 const checkedFields = document.querySelectorAll("td");
 const adder = document.querySelector("#adder");
+const drumBall = document.querySelector(".drum-ball");
+const drawnNumberBox = document.querySelector(".drawn-numbers-box");
+const choise = document.querySelector("#choise");
 let chosenSix = false;
 let chosenNumbers = [];
 let sortedChosenNumbers = [];
@@ -41,13 +44,11 @@ var num = gen();
 
 
 function timer(ms) {
-
 	return new Promise(res => setTimeout(res, ms));
 }
 
 
-//let counter = document.querySelector("#count");
-let choise = document.querySelector("#choise");
+
 
 for (let i = 0; i < checkedFields.length; i++) {
 	adder.style.pointerEvents = "none";
@@ -75,19 +76,11 @@ for (let i = 0; i < checkedFields.length; i++) {
 			adder.classList.remove("btn-danger");
 			adder.classList.add("btn-success");
 
-
-
 		}
-
 	})
-
 }
 
 console.log(num)
-
-
-
-//let colIndex = 1;
 
 function compare() {
 
@@ -98,10 +91,6 @@ function compare() {
 			}
 		}
 	}
-
-
-
-
 }
 
 let index = 0;
@@ -152,17 +141,15 @@ function gen() {
 }
 
 
-
 // Display 35 numbers with delay
 play.addEventListener("click", playGame)
 
 async function playGame() {
 
-	
-	document.querySelector(".tg").style.animation = `bounceOut 1s ease-in`;
-	document.querySelector(".drawn-numbers-box").style.display = "block";
-	document.querySelector(".drawn-numbers-box").style.animation = `scale  1s ease-in`
-	document.querySelector(".drum-ball").style.display = "block";
+	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
+	drawnNumberBox.style.display = "block";
+	drawnNumberBox.style.animation = "scale  1s ease-in"
+	drumBall.style.display = "block";
 	
 	let num = gen();
 
@@ -176,32 +163,31 @@ async function playGame() {
 				document.getElementById(`drawn${j+1}`).innerHTML = `${num[j]}`;
 		
 			}, 3000);
-			document.querySelector(".drum-ball").style.animation = `bounceIn 3s ${num.length}`
+			drumBall.style.animation = `bounceIn 3s ${num.length}`;
 		
-			
 			if (num[j] === red[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
 
 			} if (num[j] === green[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
 
 			} if (num[j] === blue[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #5cabff, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #5cabff, #000)'
 
 			} if (num[j] === violet[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #9933ff, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #9933ff, #000)'
 
 			} if (num[j] === brown[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #8B4513, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #8B4513, #000)'
 
 			} if (num[j] === yellow[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #FFFF00, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #FFFF00, #000)'
 
 			} if (num[j] === orange[n]) {
-				document.querySelector(".drum-ball").style.background = 'radial-gradient(circle at 50px 50px, #ffa500, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ffa500, #000)'
 
 			} if (num[j] === black[n]) {
-				document.querySelector(".drum-ball").style.background = 'linear-gradient(320deg, #000000 0%, #434343 70%);'
+				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #000, #000)'
 
 			}
 
