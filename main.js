@@ -180,7 +180,7 @@ async function playGame() {
 
 			if (num[j] === red[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
-				cirleColor()
+		
 			} if (num[j] === green[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
 
