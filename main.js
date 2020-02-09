@@ -3,16 +3,7 @@
 
 let lukcySixGame = {
 	"chosenSix": false,
-	"columns": {
-		"column1": document.getElementById("column1"),
-		"column2": document.getElementById("column2"),
-		"column3": document.getElementById("column3"),
-		"column4": document.getElementById("column4"),
-		"column5": document.getElementById("column5"),
-		"column6": document.getElementById("column6"),
-		"column7": document.getElementById("column7"),
-		"column8": document.getElementById("column8")
-	},
+	
 
 }
 
@@ -46,8 +37,6 @@ var num = gen();
 function timer(ms) {
 	return new Promise(res => setTimeout(res, ms));
 }
-
-
 
 
 for (let i = 0; i < checkedFields.length; i++) {
@@ -150,7 +139,7 @@ async function playGame() {
 	drawnNumberBox.style.display = "block";
 	drawnNumberBox.style.animation = "scale  1s ease-in"
 	drumBall.style.display = "block";
-	
+	compare();
 	let num = gen();
 
 	console.log(num)
