@@ -3,7 +3,7 @@
 
 let lukcySixGame = {
 	"chosenSix": false,
-	
+
 
 }
 
@@ -103,7 +103,7 @@ function add() {
 
 	}
 	adder.classList.add("btn-danger");
-	
+
 }
 
 
@@ -147,16 +147,40 @@ async function playGame() {
 	for (let j = 0; j < num.length; j++) {
 		for (let n = 0; n < num.length; n++) {
 			document.getElementById("res").innerHTML = `${num[j]}`;
-			
+
 			setTimeout(function () {
-				document.getElementById(`drawn${j+1}`).innerHTML = `${num[j]}`;
-		
+				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
+				/* if (num[j] === red[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #ff0000'
+				
+				} if (num[j] === green[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #33cc33'
+
+				} if (num[j] === blue[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #5cabff'
+
+				} if (num[j] === violet[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #9933ff'
+
+				} if (num[j] === brown[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #8B4513'
+
+				} if (num[j] === yellow[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #FFFF00'
+
+				} if (num[j] === orange[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #ffa500'
+
+				} if (num[j] === black[n]) {
+					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #000'
+
+				} */
 			}, 3000);
 			drumBall.style.animation = `bounceIn 3s ${num.length}`;
-		
+
 			if (num[j] === red[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
-
+				cirleColor()
 			} if (num[j] === green[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
 
