@@ -41,9 +41,8 @@ body {
 }
 
 .tn td {
-    text-align: center;
+    text-align: left;
     font-size: 14px;
-    padding: 0 0;
     font-family: Arial, sans-serif;
     height: 36px;
     width: 36px;
@@ -51,7 +50,7 @@ body {
 }
 
 .tn .sum {
-    text-align: left;
+    text-align: center;
 }
 
 .drum-ball {
@@ -160,7 +159,7 @@ body {
 }
 
 .drawn-numbers-box {
-    display: none;
+    display: block;
 }
 
 .balls-colors {

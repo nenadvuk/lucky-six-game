@@ -71,19 +71,6 @@ for (let i = 0; i < checkedFields.length; i++) {
 
 console.log(num)
 
-/* function compare() {
-
-	for (let i = 0; i < sortedChosenNumbers.length; i++) {
-		for (let j = 0; j < num.length; j++) {
-			if (sortedChosenNumbers[i] === num[j]) {
-				document.querySelector("#col" + index + (i + 1)).style.fontWeight = "1000"
-			}
-		}
-	}
-} */
-
-
-
 
 let index = 0;
 adder.addEventListener("click", add)
@@ -92,27 +79,7 @@ function add() {
 	index++
 	adder.style.pointerEvents = "none";
 	document.querySelector("#col" + count).style.display = "block";
-	/*arr = [];
-	for (let a = 0; a < num.length; a++) {
-		for (let b = 0; b < sortedChosenNumbers.length; b++) {
-			if (num[a] === sortedChosenNumbers[b]) {
-				arr.push(a)
-				setTimeout(function () {
-					console.log(arr[b])
-					document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000"
-				}, (arr[b] * 3000))
-			}
-		}
-	}
-	console.log(arr)
-	for (let x = 1; x <= sortedChosenNumbers.length; x++) {
-		console.log(arr[x])
-		setTimeout(function () {
-			console.log(x)
-			document.querySelector("#col" + 1 + x).style.fontWeight = "1000"
-		}, (arr[x] * 3000))
-	} */
-
+	
 	if (chosenSix && count <= 8) {
 
 		count++;
@@ -154,7 +121,6 @@ function gen() {
 
 
 
-
 // Display 35 numbers with delay
 play.addEventListener("click", playGame)
 
@@ -162,30 +128,23 @@ async function playGame() {
 	
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	drawnNumberBox.style.display = "block";
-	drawnNumberBox.style.animation = "scale  1s ease-in"
+	drawnNumberBox.style.animation = "scale 1s ease-in"
+	setTimeout(function (){
+		document.querySelector(".tg").style.display = "none"
+	},900)
 	drumBall.style.display = "block";
-	/* compare(); */
-	/* let num = gen(); */
-
-	
-
 	console.log(num)
-
 
 	for (let j = 0; j < num.length; j++) {
 		for (let n = 0; n < num.length; n++) {
 			for (let b = 0; b < sortedChosenNumbers.length; b++) {
 				if (num[j] === sortedChosenNumbers[b]) {
 					setTimeout(function () {
-						document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000"
+						document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000";
 					}, 3000);
-					
-					
-					
+
 				}
 			}
-			
-
 			document.getElementById("res").innerHTML = `${num[j]}`;
 
 			setTimeout(function () {
@@ -219,28 +178,28 @@ async function playGame() {
 			drumBall.style.animation = `bounceIn 3s ${num.length}`;
 
 			if (num[j] === red[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ff0000, #000)'
 
 			} if (num[j] === green[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #33cc33, #000)'
 
 			} if (num[j] === blue[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #5cabff, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #5cabff, #000)'
 
 			} if (num[j] === violet[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #9933ff, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #9933ff, #000)'
 
 			} if (num[j] === brown[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #8B4513, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #8B4513, #383838)'
 
 			} if (num[j] === yellow[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #FFFF00, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)'
 
 			} if (num[j] === orange[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ffa500, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ffa500, #996300)'
 
 			} if (num[j] === black[n]) {
-				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #000, #000)'
+				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #606060, #000)'
 
 			}
 
@@ -251,21 +210,6 @@ async function playGame() {
 
 
 }
-
-
-
-
-/* document.querySelector(".number-box img").style.display = "block" */
-/* for (let i = 0; i < num.length; i++) {
-	document.getElementById("res").value = num[i];
-	for (j = 0; j < num.length; j++) {
-		if (sortedChosenNumbers[i] === num[j]) {
-			document.querySelector("#col" + 1 + (i + 1)).style.fontWeight = "1000"
-		}
-	}
-
-
-} */
 
 
 
