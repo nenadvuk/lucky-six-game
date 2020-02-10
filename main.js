@@ -71,7 +71,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 
 console.log(num)
 
-function compare() {
+/* function compare() {
 
 	for (let i = 0; i < sortedChosenNumbers.length; i++) {
 		for (let j = 0; j < num.length; j++) {
@@ -80,7 +80,10 @@ function compare() {
 			}
 		}
 	}
-}
+} */
+
+
+
 
 let index = 0;
 adder.addEventListener("click", add)
@@ -89,6 +92,26 @@ function add() {
 	index++
 	adder.style.pointerEvents = "none";
 	document.querySelector("#col" + count).style.display = "block";
+	/*arr = [];
+	for (let a = 0; a < num.length; a++) {
+		for (let b = 0; b < sortedChosenNumbers.length; b++) {
+			if (num[a] === sortedChosenNumbers[b]) {
+				arr.push(a)
+				setTimeout(function () {
+					console.log(arr[b])
+					document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000"
+				}, (arr[b] * 3000))
+			}
+		}
+	}
+	console.log(arr)
+	for (let x = 1; x <= sortedChosenNumbers.length; x++) {
+		console.log(arr[x])
+		setTimeout(function () {
+			console.log(x)
+			document.querySelector("#col" + 1 + x).style.fontWeight = "1000"
+		}, (arr[x] * 3000))
+	} */
 
 	if (chosenSix && count <= 8) {
 
@@ -130,22 +153,39 @@ function gen() {
 }
 
 
+
+
 // Display 35 numbers with delay
 play.addEventListener("click", playGame)
 
 async function playGame() {
-
+	
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	drawnNumberBox.style.display = "block";
 	drawnNumberBox.style.animation = "scale  1s ease-in"
 	drumBall.style.display = "block";
-	compare();
-	let num = gen();
+	/* compare(); */
+	/* let num = gen(); */
+
+	
 
 	console.log(num)
 
+
 	for (let j = 0; j < num.length; j++) {
 		for (let n = 0; n < num.length; n++) {
+			for (let b = 0; b < sortedChosenNumbers.length; b++) {
+				if (num[j] === sortedChosenNumbers[b]) {
+					setTimeout(function () {
+						document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000"
+					}, 3000);
+					
+					
+					
+				}
+			}
+			
+
 			document.getElementById("res").innerHTML = `${num[j]}`;
 
 			setTimeout(function () {
@@ -180,7 +220,7 @@ async function playGame() {
 
 			if (num[j] === red[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #ff0000, #000)'
-		
+
 			} if (num[j] === green[n]) {
 				drumBall.style.background = 'radial-gradient(circle at 50px 50px, #33cc33, #000)'
 
@@ -205,6 +245,8 @@ async function playGame() {
 			}
 
 		} await timer(3000)
+
+
 	}
 
 
@@ -220,7 +262,7 @@ async function playGame() {
 		if (sortedChosenNumbers[i] === num[j]) {
 			document.querySelector("#col" + 1 + (i + 1)).style.fontWeight = "1000"
 		}
-	} await timer(1000);
+	}
 
 
 } */
