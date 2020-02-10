@@ -127,7 +127,10 @@ play.addEventListener("click", playGame)
 async function playGame() {
 	
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
-	drawnNumberBox.style.display = "block";
+	setTimeout(function (){
+		drawnNumberBox.style.display = "block";
+	},900)
+	
 	drawnNumberBox.style.animation = "scale 1s ease-in"
 	setTimeout(function (){
 		document.querySelector(".tg").style.display = "none"
