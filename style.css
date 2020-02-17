@@ -33,14 +33,13 @@ body {
 }
 
 .tg td {
-    
+    display: none;
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
     padding: 3px 3px;
     overflow: hidden;
     cursor: pointer;
-   
 }
 
 .tn td {
@@ -48,56 +47,58 @@ body {
     font-size: 14px;
     font-family: Arial, sans-serif;
     padding: 3px 1px;
-   
 }
+
 /* .sum-ring {
     border: 1px solid red;
     height: 20px;
     width: 10px;
 } */
 
-.tn .sum {
+.sum {
     font-family: 'Rubik', sans-serif;
-    text-align: left;
-
+    text-align: center;
 }
+
+
 
 .drum-ball {
     position: absolute;
-    display: none;
+    display: block;
     border-radius: 100%;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     margin: 0;
+    background: radial-gradient(circle at 30px 30px, #ff0000, #000);
 }
 
 .inner-circle {
     position: relative;
     border-radius: 100%;
     border: 1px solid white;
-    top: 15px;
-    left: 15px;
-    height: 120px;
-    width: 120px;
+    top: 10px;
+    left: 10px;
+    height: 110px;
+    width: 110px;
 }
 
 .random-number {
-    margin: 20px auto;
+    margin: 19px auto;
     position: relative;
     border-radius: 100%;
-    height: 80px;
-    width: 80px;
+    height: 70px;
+    width: 70px;
     background-color: whitesmoke;
 }
 
 .ball-number {
+    
     font-family: 'Rubik', sans-serif;
     position: relative;
     margin: auto;
     display: table;
-    font-size: 3.5rem;
+    font-size: 3.05rem;
 }
-
 
 .lucky-numbers {
     text-align: start;
@@ -129,14 +130,14 @@ body {
 }
 
 .drawn-numbers-box {
-    display: none;
+    display: block;
     position: absolute;
 }
 
 .ring {
     font-family: 'Rubik', sans-serif;
-    font-size: 1em;
-    font-weight: 900;
+    font-size: 1.1em;
+    font-weight: 600;
     border: 1px solid gray;
     border-radius: 50%;
     height: 30px;
@@ -144,7 +145,6 @@ body {
     padding: 3px 0;
     text-align: center;
 }
-
 
 .balls-colors {
     border-radius: 50%;
@@ -162,36 +162,34 @@ body {
 }
 
 .lucky-6-btn {
-   
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #e8ebec 5%, #f70000 100%);
-	background-color:#599bb3;
-    border-radius:8px;
+    box-shadow: 0px 10px 14px -7px #276873;
+    background: linear-gradient(to bottom, #e8ebec 5%, #f70000 100%);
+    background-color: #599bb3;
+    border-radius: 8px;
     width: 150px;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:13px 32px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #3d768a;
-   
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 13px 32px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #3d768a;
 }
 
 .lucky-6-btn:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
+    background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+    background-color: #408c99;
 }
+
 .lucky-6-btn:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .lucky-6-btn:focus {
-        outline:none !important;
-    
+    outline: none !important;
 }
 
 .red {
@@ -232,7 +230,6 @@ body {
     background-color: black;
 }
 
-
 @keyframes scale {
     0% {
         transform: scale(0);
@@ -254,25 +251,6 @@ body {
         opacity: 0;
     }
 }
-
-@keyframes heartBeat {
-    0% {
-        transform: scale(1);
-    }
-    14% {
-        transform: scale(1.3);
-    }
-    28% {
-        transform: scale(1);
-    }
-    42% {
-        transform: scale(1.3);
-    }
-    70% {
-        transform: scale(1);
-    }
-}
-
 
 @keyframes bounceIn {
     0% {

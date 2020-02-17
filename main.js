@@ -60,7 +60,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
 			for (let j =0 ; j < 6; j++) {
-				const circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
+				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
 				if (this.id == luckySixGame["colors"]["red"][j]) {
 					circleColor.style.border = "1.5px solid red"
 
