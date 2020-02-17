@@ -22,6 +22,8 @@ const drumBall = document.querySelector(".drum-ball");
 const drawnNumberBox = document.querySelector(".drawn-numbers-box");
 const choise = document.querySelector("#choise");
 const play = document.querySelector("#play");
+
+
 let chosenNumbers = [];
 let slicedArray = [];
 let sortedSlicedArray = [];
@@ -33,6 +35,8 @@ let index = 0;
 
 adder.addEventListener("click", add);
 play.addEventListener("click", playGame);
+
+
 
 
 function arrayAdd() {
@@ -91,10 +95,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
 			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
-			/* adder.classList.add("btn-danger");
-			adder.classList.remove("btn-danger");
-			adder.classList.add("btn-success"); */
-			// 
+			
 		}
 
 	})
@@ -113,7 +114,7 @@ function add() {
 		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
 
 	}
-	console.log(luckySixGame['chosenSix'])
+	
 	adder.style.pointerEvents = "none";
 	for (let j = 0; j < sortedSlicedArray.length; j++) {
 		if(sortedSlicedArray[j] < 10) {
@@ -135,8 +136,7 @@ function add() {
 
 	}
 	adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
-	
-	//adder.classList.add("btn-danger");
+
 
 }
 
@@ -165,10 +165,9 @@ function gen() {
 
 console.log(num)
 
+
+
 // Display 35 numbers with delay
-
-
-
 async function playGame() {
 
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
