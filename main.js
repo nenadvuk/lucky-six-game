@@ -1,9 +1,11 @@
 
 
 
-let lukcySixGame = {
+let luckySixGame = {
 	"chosenSix": false,
-
+	"arrays": {
+		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
+	},
 
 }
 
@@ -25,13 +27,22 @@ const adder = document.querySelector("#adder");
 const drumBall = document.querySelector(".drum-ball");
 const drawnNumberBox = document.querySelector(".drawn-numbers-box");
 const choise = document.querySelector("#choise");
+const play = document.querySelector("#play");
 let chosenSix = false;
 let chosenNumbers = [];
-let sortedChosenNumbers = [];
+let slicedArray = [];
+let sortedSlicedArray = [];
 let checkedNumbers = 0;
-const play = document.querySelector("#play");
-let count = 1;
-var num = gen();
+let count = 0;
+let num = gen();
+
+function arrayAdd() {
+
+	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
+
+
+
+}
 
 
 function timer(ms) {
@@ -40,56 +51,106 @@ function timer(ms) {
 
 
 for (let i = 0; i < checkedFields.length; i++) {
+
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
 
 		if (!chosenSix) {
+
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
+			for (c = 0; c < 6; c++) {
+				const circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
+				if (this.id == red[c]) {
+					circleColor.style.border = "1.5px solid red"
+
+				} if (this.id == green[c]) {
+					circleColor.style.border = "1.5px solid #33cc33 "
+
+				} if (this.id == blue[c]) {
+					circleColor.style.border = "1.5px solid #1a75ff"
+
+				} if (this.id == violet[c]) {
+					circleColor.style.border = "1.5px solid #9933ff"
+
+				} if (this.id == brown[c]) {
+					circleColor.style.border = "1.5px solid #663300"
+
+				} if (this.id == yellow[c]) {
+					circleColor.style.border = "1.5px solid #ffff33"
+
+				} if (this.id == orange[c]) {
+					circleColor.style.border = "1.5px solid #ff9900"
+
+				} if (this.id == black[c]) {
+					circleColor.style.border = "1.5px solid black"
+				}
+			}
 			let clickedNumber = Number(this.id);
 			chosenNumbers.push(clickedNumber);
-			choise.value = chosenNumbers;
-			sortedChosenNumbers = chosenNumbers.sort((a, b) => a - b);
 
 		}
 
 		if (checkedNumbers === 6 && count <= 8) {
-			for (let j = 1; j <= 6; j++) {
-				document.getElementById(`col${count}${j}`).innerHTML = sortedChosenNumbers[j - 1];
-
-			}
-			adder.style.pointerEvents = "all";
-			console.log(sortedChosenNumbers)
-			adder.classList.add("btn-danger");
 			chosenSix = true;
+			adder.style.pointerEvents = "all";
+			adder.classList.add("btn-danger");
 			adder.classList.remove("btn-danger");
 			adder.classList.add("btn-success");
 
 		}
+
 	})
 }
 
-console.log(num)
+index = 0;
 
 
-let index = 0;
 adder.addEventListener("click", add)
 
 function add() {
-	index++
+
+	count++;
+	slicedArray = chosenNumbers.slice(index);
+	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
+	arrayAdd();
+	for (let o = 0; o < 48; o++) {
+		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
+
+	}
+
+
+
+	console.log(luckySixGame['arrays']['arr1'][0][2])
+	console.log(luckySixGame['arrays']['arr2'])
+	console.log(luckySixGame['arrays']['arr3'])
+	console.log(luckySixGame['arrays']['arr4'])
+	console.log(luckySixGame['arrays']['arr5'])
+	console.log(luckySixGame['arrays']['arr6'])
+	console.log(luckySixGame['arrays']['arr7'])
+	console.log(luckySixGame['arrays']['arr8'])
+
+
 	adder.style.pointerEvents = "none";
-	document.querySelector("#col" + count).style.display = "block";
-	
+	for (let j = 1; j <= 6; j++) {
+
+		document.getElementById(`col${count}${j}`).innerHTML = sortedSlicedArray[j - 1];
+
+	}
 	if (chosenSix && count <= 8) {
 
-		count++;
+
 		choise.value = "";
 		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
+
 		}
-		chosenNumbers.splice(0, chosenNumbers.length);
+
+		console.log(chosenNumbers)
+		console.log(slicedArray)
 		chosenSix = false;
 		checkedNumbers = 0;
+		index += 6;
 
 	}
 	adder.classList.add("btn-danger");
@@ -119,64 +180,49 @@ function gen() {
 	return numbers
 }
 
-
+console.log(num)
 
 // Display 35 numbers with delay
+
 play.addEventListener("click", playGame)
 
 async function playGame() {
-	
+
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
-	setTimeout(function (){
+	setTimeout(function () {
 		drawnNumberBox.style.display = "block";
-	},900)
-	
+	}, 900)
+
 	drawnNumberBox.style.animation = "scale 1s ease-in"
-	setTimeout(function (){
+	setTimeout(function () {
 		document.querySelector(".tg").style.display = "none"
-	},900)
+	}, 900)
 	drumBall.style.display = "block";
+
 	console.log(num)
 
 	for (let j = 0; j < num.length; j++) {
 		for (let n = 0; n < num.length; n++) {
-			for (let b = 0; b < sortedChosenNumbers.length; b++) {
-				if (num[j] === sortedChosenNumbers[b]) {
-					setTimeout(function () {
-						document.querySelector("#col" + 1 + (b+1)).style.fontWeight = "1000";
-					}, 3000);
+			for (let b = 0; b <= 6; b++) {
+				for (let a = 1; a <= count; a++) {
+					if (num[j] === luckySixGame['arrays'][`arr${a}`][0][b]) {
+		
+						setTimeout(function () {
+							document.querySelector("#col" + a + (b + 1)).style.fontWeight = "1000";
 
+						}, 3000);
+
+					}
 				}
+
+
+
 			}
 			document.getElementById("res").innerHTML = `${num[j]}`;
 
 			setTimeout(function () {
 				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
-				/* if (num[j] === red[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #ff0000'
-				
-				} if (num[j] === green[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #33cc33'
 
-				} if (num[j] === blue[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #5cabff'
-
-				} if (num[j] === violet[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #9933ff'
-
-				} if (num[j] === brown[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #8B4513'
-
-				} if (num[j] === yellow[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #FFFF00'
-
-				} if (num[j] === orange[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #ffa500'
-
-				} if (num[j] === black[n]) {
-					document.getElementById(`drawn${j + 1}`).style.border = '2px solid #000'
-
-				} */
 			}, 3000);
 			drumBall.style.animation = `bounceIn 3s ${num.length}`;
 

@@ -89,6 +89,107 @@ body {
     font-size: 3.5rem;
 }
 
+
+.lucky-numbers {
+    text-align: start;
+    background-color: whitesmoke;
+    min-width: 20rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.number-box {
+   
+    position: relative;
+    height: 350px;
+    width: 400px;
+}
+
+.number-box img {
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.columns {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    border-bottom: 1px solid;
+}
+
+.drawn-numbers-box {
+    display: none;
+    position: absolute;
+}
+
+.ring {
+    font-size: 1em;
+    border: 1px solid gray;
+    border-radius: 50%;
+    height: 33px;
+    width: 33px;
+    padding: 5px 0;
+    text-align: center;
+}
+
+
+.balls-colors {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.circle {
+    border: 1px solid gray;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 9px 0;
+}
+
+
+/* .square {
+    text-align: center;
+    padding: 5px 0;
+} */
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: #33cc33;
+}
+
+.blue {
+    background-color: #1a75ff;
+}
+
+.violet {
+    background-color: #9933ff;
+}
+
+.brown {
+    background-color: #663300;
+}
+
+.yellow {
+    background-color: #ffff33;
+}
+
+.orange {
+    background-color: #ff9900;
+}
+
+.black {
+    background-color: black;
+}
+
+
 @keyframes scale {
     0% {
         transform: scale(0);
@@ -129,101 +230,6 @@ body {
     }
 }
 
-.lucky-numbers {
-    text-align: start;
-    background-color: whitesmoke;
-    min-width: 20rem;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.number-box {
-    position: relative;
-    height: 350px;
-    width: 400px;
-}
-
-.number-box img {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.columns {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;
-    border-bottom: 1px solid;
-}
-
-.drawn-numbers-box {
-    display: none;
-    position: absolute;
-}
-
-.balls-colors {
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-}
-
-.circle {
-    border: 1px solid gray;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    padding: 9px 0;
-}
-
-.ring {
-    font-size: 1em;
-    border: 1px solid gray;
-    border-radius: 50%;
-    height: 33px;
-    width: 33px;
-    padding: 5px 0;
-    text-align: center;
-}
-
-.square {
-    text-align: center;
-    padding: 5px 0;
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: #33cc33;
-}
-
-.blue {
-    background-color: #1a75ff;
-}
-
-.violet {
-    background-color: #9933ff;
-}
-
-.brown {
-    background-color: #663300;
-}
-
-.yellow {
-    background-color: #ffff33;
-}
-
-.orange {
-    background-color: #ff9900;
-}
-
-.black {
-    background-color: black;
-}
 
 @keyframes bounceIn {
     0% {
