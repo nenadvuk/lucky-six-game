@@ -7,32 +7,13 @@ let luckySixGame = {
 		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
 	},
 	"colors": {
-		"red": [1, 9, 17, 25, 33, 41],
-		"green": [2, 10, 18, 26, 34, 42],
-		"blue": [3, 11, 19, 27, 35, 43],
-		"violet": [4, 12, 20, 28, 36, 44],
-		"brown": [5, 13, 21, 29, 37, 45],
-		"yellow": [6, 14, 22, 30, 38, 46],
-		"orange": [7, 15, 23, 31, 39, 47],
-		"black": [8, 16, 24, 32, 40, 48],
+		"red": [1, 9, 17, 25, 33, 41], "green": [2, 10, 18, 26, 34, 42], "blue": [3, 11, 19, 27, 35, 43],
+		"violet": [4, 12, 20, 28, 36, 44], "brown": [5, 13, 21, 29, 37, 45], "yellow": [6, 14, 22, 30, 38, 46],
+		"orange": [7, 15, 23, 31, 39, 47], "black": [8, 16, 24, 32, 40, 48],
 
 	},
 
 }
-
-console.log(luckySixGame["colors"]["red"][2])
-
-// Colors of the balls
-
-/* const red = [1, 9, 17, 25, 33, 41];
-const green = [2, 10, 18, 26, 34, 42];
-const blue = [3, 11, 19, 27, 35, 43];
-const violet = [4, 12, 20, 28, 36, 44];
-const brown = [5, 13, 21, 29, 37, 45];
-const yellow = [6, 14, 22, 30, 38, 46];
-const orange = [7, 15, 23, 31, 39, 47];
-const black = [8, 16, 24, 32, 40, 48];
- */
 
 
 const checkedFields = document.querySelectorAll("td");
@@ -41,19 +22,16 @@ const drumBall = document.querySelector(".drum-ball");
 const drawnNumberBox = document.querySelector(".drawn-numbers-box");
 const choise = document.querySelector("#choise");
 const play = document.querySelector("#play");
-let chosenSix = false;
 let chosenNumbers = [];
 let slicedArray = [];
 let sortedSlicedArray = [];
 let checkedNumbers = 0;
 let count = 0;
 let num = gen();
+let index = 0;
 
 function arrayAdd() {
-
 	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
-
-
 
 }
 
@@ -68,8 +46,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
 
-		if (!chosenSix) {
-
+		if (!luckySixGame["chosenSix"]) {
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
 			for (c = 0; c < 6; c++) {
@@ -105,7 +82,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 		}
 
 		if (checkedNumbers === 6 && count <= 8) {
-			chosenSix = true;
+			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
 			adder.classList.add("btn-danger");
 			adder.classList.remove("btn-danger");
@@ -116,7 +93,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 	})
 }
 
-index = 0;
+
 
 
 adder.addEventListener("click", add)
@@ -131,26 +108,14 @@ function add() {
 		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
 
 	}
-
-
-
-	console.log(luckySixGame['arrays']['arr1'][0][2])
-	console.log(luckySixGame['arrays']['arr2'])
-	console.log(luckySixGame['arrays']['arr3'])
-	console.log(luckySixGame['arrays']['arr4'])
-	console.log(luckySixGame['arrays']['arr5'])
-	console.log(luckySixGame['arrays']['arr6'])
-	console.log(luckySixGame['arrays']['arr7'])
-	console.log(luckySixGame['arrays']['arr8'])
-
-
+	console.log(luckySixGame['chosenSix'])
 	adder.style.pointerEvents = "none";
 	for (let j = 1; j <= 6; j++) {
 
 		document.getElementById(`col${count}${j}`).innerHTML = sortedSlicedArray[j - 1];
 
 	}
-	if (chosenSix && count <= 8) {
+	if (luckySixGame["chosenSix"] && count <= 8) {
 
 
 		choise.value = "";
@@ -161,7 +126,7 @@ function add() {
 
 		console.log(chosenNumbers)
 		console.log(slicedArray)
-		chosenSix = false;
+		luckySixGame["chosenSix"] = false;
 		checkedNumbers = 0;
 		index += 6;
 
