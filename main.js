@@ -6,12 +6,25 @@ let luckySixGame = {
 	"arrays": {
 		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
 	},
+	"colors": {
+		"red": [1, 9, 17, 25, 33, 41],
+		"green": [2, 10, 18, 26, 34, 42],
+		"blue": [3, 11, 19, 27, 35, 43],
+		"violet": [4, 12, 20, 28, 36, 44],
+		"brown": [5, 13, 21, 29, 37, 45],
+		"yellow": [6, 14, 22, 30, 38, 46],
+		"orange": [7, 15, 23, 31, 39, 47],
+		"black": [8, 16, 24, 32, 40, 48],
+
+	},
 
 }
 
+console.log(luckySixGame["colors"]["red"][2])
+
 // Colors of the balls
 
-const red = [1, 9, 17, 25, 33, 41];
+/* const red = [1, 9, 17, 25, 33, 41];
 const green = [2, 10, 18, 26, 34, 42];
 const blue = [3, 11, 19, 27, 35, 43];
 const violet = [4, 12, 20, 28, 36, 44];
@@ -19,7 +32,7 @@ const brown = [5, 13, 21, 29, 37, 45];
 const yellow = [6, 14, 22, 30, 38, 46];
 const orange = [7, 15, 23, 31, 39, 47];
 const black = [8, 16, 24, 32, 40, 48];
-
+ */
 
 
 const checkedFields = document.querySelectorAll("td");
@@ -61,28 +74,28 @@ for (let i = 0; i < checkedFields.length; i++) {
 			this.style.pointerEvents = "none";
 			for (c = 0; c < 6; c++) {
 				const circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
-				if (this.id == red[c]) {
+				if (this.id == luckySixGame["colors"]["red"][c]) {
 					circleColor.style.border = "1.5px solid red"
 
-				} if (this.id == green[c]) {
+				} if (this.id == luckySixGame["colors"]["green"][c]) {
 					circleColor.style.border = "1.5px solid #33cc33 "
 
-				} if (this.id == blue[c]) {
+				} if (this.id == luckySixGame["colors"]["blue"][c]) {
 					circleColor.style.border = "1.5px solid #1a75ff"
 
-				} if (this.id == violet[c]) {
+				} if (this.id == luckySixGame["colors"]["violet"][c]) {
 					circleColor.style.border = "1.5px solid #9933ff"
 
-				} if (this.id == brown[c]) {
+				} if (this.id == luckySixGame["colors"]["brown"][c]) {
 					circleColor.style.border = "1.5px solid #663300"
 
-				} if (this.id == yellow[c]) {
+				} if (this.id == luckySixGame["colors"]["yellow"][c]) {
 					circleColor.style.border = "1.5px solid #ffff33"
 
-				} if (this.id == orange[c]) {
+				} if (this.id == luckySixGame["colors"]["orange"][c]) {
 					circleColor.style.border = "1.5px solid #ff9900"
 
-				} if (this.id == black[c]) {
+				} if (this.id == luckySixGame["colors"]["black"][c]) {
 					circleColor.style.border = "1.5px solid black"
 				}
 			}
@@ -206,7 +219,7 @@ async function playGame() {
 			for (let b = 0; b <= 6; b++) {
 				for (let a = 1; a <= count; a++) {
 					if (num[j] === luckySixGame['arrays'][`arr${a}`][0][b]) {
-		
+
 						setTimeout(function () {
 							document.querySelector("#col" + a + (b + 1)).style.fontWeight = "1000";
 
@@ -226,28 +239,28 @@ async function playGame() {
 			}, 3000);
 			drumBall.style.animation = `bounceIn 3s ${num.length}`;
 
-			if (num[j] === red[n]) {
+			if (num[j] === luckySixGame["colors"]["red"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ff0000, #000)'
 
-			} if (num[j] === green[n]) {
+			} if (num[j] === luckySixGame["colors"]["green"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #33cc33, #000)'
 
-			} if (num[j] === blue[n]) {
+			} if (num[j] === luckySixGame["colors"]["blue"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #5cabff, #000)'
 
-			} if (num[j] === violet[n]) {
+			} if (num[j] === luckySixGame["colors"]["violet"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #9933ff, #000)'
 
-			} if (num[j] === brown[n]) {
+			} if (num[j] === luckySixGame["colors"]["brown"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #8B4513, #383838)'
 
-			} if (num[j] === yellow[n]) {
+			} if (num[j] === luckySixGame["colors"]["yellow"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)'
 
-			} if (num[j] === orange[n]) {
+			} if (num[j] === luckySixGame["colors"]["orange"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ffa500, #996300)'
 
-			} if (num[j] === black[n]) {
+			} if (num[j] === luckySixGame["colors"]["black"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #606060, #000)'
 
 			}
