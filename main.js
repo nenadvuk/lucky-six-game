@@ -30,6 +30,11 @@ let count = 0;
 let num = gen();
 let index = 0;
 
+
+adder.addEventListener("click", add);
+play.addEventListener("click", playGame);
+
+
 function arrayAdd() {
 	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
 
@@ -41,6 +46,7 @@ function timer(ms) {
 }
 
 
+
 for (let i = 0; i < checkedFields.length; i++) {
 
 	adder.style.pointerEvents = "none";
@@ -49,30 +55,30 @@ for (let i = 0; i < checkedFields.length; i++) {
 		if (!luckySixGame["chosenSix"]) {
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
-			for (c = 0; c < 6; c++) {
+			for (let j =0 ; j < 6; j++) {
 				const circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
-				if (this.id == luckySixGame["colors"]["red"][c]) {
+				if (this.id == luckySixGame["colors"]["red"][j]) {
 					circleColor.style.border = "1.5px solid red"
 
-				} if (this.id == luckySixGame["colors"]["green"][c]) {
+				} if (this.id == luckySixGame["colors"]["green"][j]) {
 					circleColor.style.border = "1.5px solid #33cc33 "
 
-				} if (this.id == luckySixGame["colors"]["blue"][c]) {
+				} if (this.id == luckySixGame["colors"]["blue"][j]) {
 					circleColor.style.border = "1.5px solid #1a75ff"
 
-				} if (this.id == luckySixGame["colors"]["violet"][c]) {
+				} if (this.id == luckySixGame["colors"]["violet"][j]) {
 					circleColor.style.border = "1.5px solid #9933ff"
 
-				} if (this.id == luckySixGame["colors"]["brown"][c]) {
+				} if (this.id == luckySixGame["colors"]["brown"][j]) {
 					circleColor.style.border = "1.5px solid #663300"
 
-				} if (this.id == luckySixGame["colors"]["yellow"][c]) {
+				} if (this.id == luckySixGame["colors"]["yellow"][j]) {
 					circleColor.style.border = "1.5px solid #ffff33"
 
-				} if (this.id == luckySixGame["colors"]["orange"][c]) {
+				} if (this.id == luckySixGame["colors"]["orange"][j]) {
 					circleColor.style.border = "1.5px solid #ff9900"
 
-				} if (this.id == luckySixGame["colors"]["black"][c]) {
+				} if (this.id == luckySixGame["colors"]["black"][j]) {
 					circleColor.style.border = "1.5px solid black"
 				}
 			}
@@ -80,14 +86,15 @@ for (let i = 0; i < checkedFields.length; i++) {
 			chosenNumbers.push(clickedNumber);
 
 		}
-
+		
 		if (checkedNumbers === 6 && count <= 8) {
 			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
-			adder.classList.add("btn-danger");
+			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
+			/* adder.classList.add("btn-danger");
 			adder.classList.remove("btn-danger");
-			adder.classList.add("btn-success");
-
+			adder.classList.add("btn-success"); */
+			// 
 		}
 
 	})
@@ -95,12 +102,10 @@ for (let i = 0; i < checkedFields.length; i++) {
 
 
 
-
-adder.addEventListener("click", add)
-
 function add() {
 
 	count++;
+	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 	slicedArray = chosenNumbers.slice(index);
 	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
 	arrayAdd();
@@ -110,28 +115,28 @@ function add() {
 	}
 	console.log(luckySixGame['chosenSix'])
 	adder.style.pointerEvents = "none";
-	for (let j = 1; j <= 6; j++) {
+	for (let j = 0; j < sortedSlicedArray.length; j++) {
+		if(sortedSlicedArray[j] < 10) {
+			document.getElementById(`col${count}${j+1}`).innerHTML = `0${sortedSlicedArray[j]}`;
 
-		document.getElementById(`col${count}${j}`).innerHTML = sortedSlicedArray[j - 1];
+		} else document.getElementById(`col${count}${j+1}`).innerHTML = sortedSlicedArray[j];
 
 	}
 	if (luckySixGame["chosenSix"] && count <= 8) {
 
-
-		choise.value = "";
 		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
 
 		}
-
-		console.log(chosenNumbers)
 		console.log(slicedArray)
 		luckySixGame["chosenSix"] = false;
 		checkedNumbers = 0;
 		index += 6;
 
 	}
-	adder.classList.add("btn-danger");
+	adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
+	
+	//adder.classList.add("btn-danger");
 
 }
 
@@ -162,7 +167,7 @@ console.log(num)
 
 // Display 35 numbers with delay
 
-play.addEventListener("click", playGame)
+
 
 async function playGame() {
 
