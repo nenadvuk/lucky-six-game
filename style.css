@@ -128,7 +128,7 @@ body {
 }
 
 .drawn-numbers-box {
-    display: block;
+    display: none;
     position: absolute;
 }
 
