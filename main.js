@@ -17,6 +17,7 @@ let luckySixGame = {
 
 
 const checkedFields = document.querySelectorAll("td");
+const allColors = document.querySelectorAll(".balls-colors");
 const adder = document.querySelector("#adder");
 const drumBall = document.querySelector(".drum-ball");
 const drawnNumberBox = document.querySelector(".drawn-numbers-box");
@@ -49,6 +50,21 @@ function timer(ms) {
 	return new Promise(res => setTimeout(res, ms));
 }
 
+// console.log(Object.values(luckySixGame["colors"])[0])
+
+
+for (let y = 0; y < 8; y++) {
+	
+	allColors[y].addEventListener("mousedown", function () {
+		if (!luckySixGame["chosenSix"]) {
+			// this[y] === (Object.values(luckySixGame["colors"])[y])
+			
+			console.log(Object.values(luckySixGame["colors"])[y])
+			console.log(this)
+		}
+	})
+} 
+
 
 
 for (let i = 0; i < checkedFields.length; i++) {
@@ -59,7 +75,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 		if (!luckySixGame["chosenSix"]) {
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
-			for (let j =0 ; j < 6; j++) {
+			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
 				if (this.id == luckySixGame["colors"]["red"][j]) {
 					circleColor.style.border = "1.5px solid red"
@@ -90,12 +106,12 @@ for (let i = 0; i < checkedFields.length; i++) {
 			chosenNumbers.push(clickedNumber);
 
 		}
-		
+
 		if (checkedNumbers === 6 && count <= 8) {
 			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
 			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
-			
+
 		}
 
 	})
@@ -114,13 +130,13 @@ function add() {
 		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
 
 	}
-	
+
 	adder.style.pointerEvents = "none";
 	for (let j = 0; j < sortedSlicedArray.length; j++) {
-		if(sortedSlicedArray[j] < 10) {
-			document.getElementById(`col${count}${j+1}`).innerHTML = `0${sortedSlicedArray[j]}`;
+		if (sortedSlicedArray[j] < 10) {
+			document.getElementById(`col${count}${j + 1}`).innerHTML = `0${sortedSlicedArray[j]}`;
 
-		} else document.getElementById(`col${count}${j+1}`).innerHTML = sortedSlicedArray[j];
+		} else document.getElementById(`col${count}${j + 1}`).innerHTML = sortedSlicedArray[j];
 
 	}
 	if (luckySixGame["chosenSix"] && count <= 8) {

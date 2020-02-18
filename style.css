@@ -23,6 +23,7 @@ html {
 
 body {
     background-color: wheat;
+
 }
 
 .tg th {
@@ -145,6 +146,7 @@ body {
 }
 
 .balls-colors {
+    cursor: pointer;
     border-radius: 50%;
     height: 40px;
     width: 40px;
@@ -279,8 +281,14 @@ body {
         transform: scale3d(.3, .3, .3);
     }
 }
+@media screen and (max-width:480px) {
+    [data-aos-delay] {
+        transition-delay: 0s !important;
+    }
+}
 
-@media only screen and (max-width: 320px) {
+
+@media only screen and (max-width: 450px) {
     .ring {
         border: 1px solid gray;
         height: 20px;
@@ -290,6 +298,14 @@ body {
     .tn td {
         width: 10px;
         font-size: .6em;
+    }
+
+    .tg {
+        margin: auto !important;
+    }
+
+    .tn{
+        margin: auto !important;
     }
     .container {
         width: 100%;
@@ -304,16 +320,18 @@ body {
         margin: 0 !important;
     }
     .lucky-numbers {
-        margin: 0 !important;
+        text-align: center;
+        margin: 0!important;
     }
     .content-box {
-        margin: 0 !important;
+        margin: 0 !important; 
         justify-content: space-around;
     }
     .number-box {
-        margin: 20px 8px;
+        margin: 20px auto 80px auto !important;
         height: 250px;
-        justify-content: start !important;
+        justify-content: center !important;
+       
     }
     .drum-ball {
         left: 120px;
@@ -341,9 +359,9 @@ body {
     .columns {
         width: 70%;
         margin: auto 50px;
-        height: 30px;
+        height: 28px;
         font-family: 'Rubik', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         border-bottom: 1px solid;
     }
     .lucky-6-btn {
@@ -365,13 +383,17 @@ body {
         font-size: 14px;
     }
     .circle {
-        height: 30px;
-        width: 30px;
+        height: 35px;
+        width: 35px;
         text-align: center;
-        padding: 4px 0;
+        padding: 7px 0;
     }
     .balls-colors {
         height: 30px;
         width: 30px;
     }
+}
+
+@media only screen and (max-width: 360px) {
+    
 }
