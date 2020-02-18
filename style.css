@@ -26,14 +26,14 @@ body {
 }
 
 .tg th {
-    display: none;
+    /*  display: none; */
     height: 46px;
     width: 46px;
     padding: 3px 3px;
 }
 
 .tg td {
-    display: none;
+    /*  display: none; */
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -43,6 +43,7 @@ body {
 }
 
 .tn td {
+    width: 28px;
     text-align: left;
     font-size: 14px;
     font-family: Arial, sans-serif;
@@ -60,16 +61,14 @@ body {
     text-align: center;
 }
 
-
-
 .drum-ball {
     position: absolute;
-    display: block;
+    display: none;
     border-radius: 100%;
     height: 130px;
     width: 130px;
     margin: 0;
-    background: radial-gradient(circle at 30px 30px, #ff0000, #000);
+    /* background: radial-gradient(circle at 30px 30px, #ff0000, #000); */
 }
 
 .inner-circle {
@@ -92,7 +91,6 @@ body {
 }
 
 .ball-number {
-    
     font-family: 'Rubik', sans-serif;
     position: relative;
     margin: auto;
@@ -279,5 +277,101 @@ body {
         opacity: 0;
         -webkit-transform: scale3d(.3, .3, .3);
         transform: scale3d(.3, .3, .3);
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .ring {
+        border: 1px solid gray;
+        height: 20px;
+        width: 20px;
+        padding: 1px 0;
+    }
+    .tn td {
+        width: 10px;
+        font-size: .6em;
+    }
+    .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .drawn-numbers-box {
+        display: none;
+        width: 400px !important;
+        position: absolute;
+        padding: 0;
+        margin: 0 !important;
+    }
+    .lucky-numbers {
+        margin: 0 !important;
+    }
+    .content-box {
+        margin: 0 !important;
+        justify-content: space-around;
+    }
+    .number-box {
+        margin: 20px 8px;
+        height: 250px;
+        justify-content: start !important;
+    }
+    .drum-ball {
+        left: 120px;
+        position: absolute;
+        border-radius: 100%;
+        height: 80px;
+        width: 80px;
+        margin: 0;
+        background: radial-gradient(circle at 30px 30px, #ff0000, #000);
+    }
+    .inner-circle {
+        top: 8px;
+        left: 8px;
+        height: 63px;
+        width: 63px;
+    }
+    .random-number {
+        margin: 11px 11px;
+        height: 40px;
+        width: 40px;
+    }
+    .ball-number {
+        font-size: 1.9rem;
+    }
+    .columns {
+        width: 70%;
+        margin: auto 50px;
+        height: 30px;
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.5rem;
+        border-bottom: 1px solid;
+    }
+    .lucky-6-btn {
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 3px 3px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #3d768a;
+    }
+    .tg th {
+        height: 20px;
+        width: 20px;
+    }
+    .tg td {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+    .circle {
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        padding: 4px 0;
+    }
+    .balls-colors {
+        height: 30px;
+        width: 30px;
     }
 }
