@@ -3,6 +3,7 @@
 
 let luckySixGame = {
 	"chosenSix": false,
+	"chosenEight" : false,
 	"arrays": {
 		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
 	},
@@ -22,6 +23,7 @@ const drumBall = document.querySelector(".drum-ball");
 const drawnNumberBox = document.querySelector(".drawn-numbers-box");
 const choise = document.querySelector("#choise");
 const play = document.querySelector("#play");
+const randomNum = document.querySelector("#addRandomNumbers");
 
 
 let checkedFields = document.querySelectorAll("td");
@@ -33,11 +35,16 @@ let count = 0;
 let num = gen();
 let index = 0;
 
+let COLORS = Object.keys(luckySixGame["colors"]);
+
+
+// Event listeners
 
 adder.addEventListener("click", add);
 play.addEventListener("click", playGame);
 
 
+// Pushing chosen sorted numbers to an array
 
 function arrayAdd() {
 	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
@@ -49,6 +56,9 @@ function timer(ms) {
 	return new Promise(res => setTimeout(res, ms));
 }
 
+
+// Printing numbers to ticket
+
 function ticket() {
 	for (let j = 0; j < sortedSlicedArray.length; j++) {
 		if (sortedSlicedArray[j] < 10) {
@@ -59,6 +69,8 @@ function ticket() {
 	}
 }
 
+// Reseting cirle colors
+
 function resetCircleColor() {
 	for (let o = 0; o < 48; o++) {
 		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
@@ -66,37 +78,45 @@ function resetCircleColor() {
 	}
 }
 
+// Generating 6 random numbers
+
+randomNum.addEventListener("mousedown", function() {
+	if (count <= 7) {
+	count++;
+	sortedSlicedArray = gen(6).sort((a, b) => a - b);
+	arrayAdd();
+	ticket();
+	} else randomNum.style.pointerEvents = "none";
+	
+})
+
 // All colors
 
 for (let y = 0; y < 8; y++) {
 
 	allColors[y].addEventListener("mousedown", function () {
-		if (!luckySixGame["chosenSix"]) {
+
+		if (!luckySixGame["chosenSix"] && count <= 7) {
 			count++;
 			this.style.pointerEvents = "none";
 			sortedSlicedArray = Object.values(luckySixGame["colors"])[y];
 			for (let i = 0; i < sortedSlicedArray.length; i++) {
-				document.querySelectorAll(`.circle-${Object.keys(luckySixGame["colors"])[y]}`)[i].style.border =
-					`1.5px solid ${Object.keys(luckySixGame["colors"])[y]}`
+				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border =`1.5px solid ${COLORS[y]}`
 			}
 
 			arrayAdd();
 			ticket();
 			setTimeout(function () {
-				
 				resetCircleColor();
 				play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 			}, 900)
 
-
-			/* console.log(Object.values(luckySixGame["colors"])[y]) //  [1, 9, 17, 25, 33, 41]
-			console.log(Object.keys(luckySixGame["colors"])[y]) // red
-			console.log(sortedSlicedArray) */
 		}
 	})
 }
 
 
+// Numbers choise
 
 for (let i = 0; i < checkedFields.length; i++) {
 
@@ -104,7 +124,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
 
-		if (!luckySixGame["chosenSix"]) {
+		if (!luckySixGame["chosenSix"] && count <= 7) {
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
 			for (let j = 0; j < 6; j++) {
@@ -149,7 +169,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 	})
 }
 
-
+// Adding chosen numbers to a ticket
 
 function add() {
 
@@ -162,7 +182,7 @@ function add() {
 
 	adder.style.pointerEvents = "none";
 	ticket();
-	if (luckySixGame["chosenSix"] && count <= 8) {
+	if (luckySixGame["chosenSix"] && count <= 7) {
 
 		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
@@ -180,11 +200,11 @@ function add() {
 }
 
 
-// Generate random 35/48 numbers
+// Generate random 35/48 or 6/48 numbers
 
-function gen() {
+function gen(abc = 35) {
 	let numbers = [];
-	for (let i = 0; i < 35; i++) {
+	for (let i = 0; i < abc; i++) {
 		let add = true;
 		let randomNumber = Math.floor(Math.random() * 48) + 1;
 		for (let y = 0; y < 48; y++) {
@@ -206,9 +226,9 @@ console.log(num)
 
 
 
-// Display 35 numbers with delay
+// Displaying 35 numbers with delay
 async function playGame() {
-
+	
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	setTimeout(function () {
 		drawnNumberBox.style.display = "block";
@@ -219,8 +239,6 @@ async function playGame() {
 		document.querySelector(".tg").style.display = "none"
 	}, 900)
 	drumBall.style.display = "block";
-
-	console.log(num)
 
 	for (let j = 0; j < num.length; j++) {
 		for (let n = 0; n < num.length; n++) {
@@ -280,6 +298,8 @@ async function playGame() {
 
 
 }
+
+
 
 
 

@@ -296,6 +296,10 @@ body {
 
 @media only screen and (max-width: 425px) {
 
+    .sum {
+        padding-top: 5px !important;
+    }
+
     .lucky-numbers {
         text-align: center;
         margin: 0 30px !important;
@@ -327,6 +331,8 @@ body {
         border-bottom: 1px solid;
     }
     
+    
+    
 
 }
 
@@ -334,6 +340,7 @@ body {
 
 
 @media only screen and (max-width: 320px) {
+    
     .ring {
        
         height: 20px;
