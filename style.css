@@ -281,7 +281,7 @@ body {
         transform: scale3d(.3, .3, .3);
     }
 }
-@media screen and (max-width:480px) {
+@media screen and (max-width:1080px) {
     [data-aos-delay] {
         transition-delay: 0s !important;
     }
