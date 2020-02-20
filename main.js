@@ -16,7 +16,6 @@ let luckySixGame = {
 }
 
 
-const checkedFields = document.querySelectorAll("td");
 const allColors = document.querySelectorAll(".balls-colors");
 const adder = document.querySelector("#adder");
 const drumBall = document.querySelector(".drum-ball");
@@ -25,6 +24,7 @@ const choise = document.querySelector("#choise");
 const play = document.querySelector("#play");
 
 
+let checkedFields = document.querySelectorAll("td");
 let chosenNumbers = [];
 let slicedArray = [];
 let sortedSlicedArray = [];
@@ -39,7 +39,6 @@ play.addEventListener("click", playGame);
 
 
 
-
 function arrayAdd() {
 	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
 
@@ -50,24 +49,57 @@ function timer(ms) {
 	return new Promise(res => setTimeout(res, ms));
 }
 
-// console.log(Object.values(luckySixGame["colors"])[0])
+function ticket() {
+	for (let j = 0; j < sortedSlicedArray.length; j++) {
+		if (sortedSlicedArray[j] < 10) {
+			document.getElementById(`col${count}${j + 1}`).innerHTML = `0${sortedSlicedArray[j]}`;
 
+		} else document.getElementById(`col${count}${j + 1}`).innerHTML = sortedSlicedArray[j];
+
+	}
+}
+
+function resetCircleColor() {
+	for (let o = 0; o < 48; o++) {
+		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
+
+	}
+}
+
+// All colors
 
 for (let y = 0; y < 8; y++) {
-	
+
 	allColors[y].addEventListener("mousedown", function () {
 		if (!luckySixGame["chosenSix"]) {
-			// this[y] === (Object.values(luckySixGame["colors"])[y])
-			
-			console.log(Object.values(luckySixGame["colors"])[y])
-			console.log(this)
+			count++;
+			this.style.pointerEvents = "none";
+			sortedSlicedArray = Object.values(luckySixGame["colors"])[y];
+			for (let i = 0; i < sortedSlicedArray.length; i++) {
+				document.querySelectorAll(`.circle-${Object.keys(luckySixGame["colors"])[y]}`)[i].style.border =
+					`1.5px solid ${Object.keys(luckySixGame["colors"])[y]}`
+			}
+
+			arrayAdd();
+
+			setTimeout(function () {
+				ticket();
+				resetCircleColor();
+				play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+			}, 900)
+
+
+			/* console.log(Object.values(luckySixGame["colors"])[y]) //  [1, 9, 17, 25, 33, 41]
+			console.log(Object.keys(luckySixGame["colors"])[y]) // red
+			console.log(sortedSlicedArray) */
 		}
 	})
-} 
+}
 
 
 
 for (let i = 0; i < checkedFields.length; i++) {
+
 
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
@@ -126,19 +158,10 @@ function add() {
 	slicedArray = chosenNumbers.slice(index);
 	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
 	arrayAdd();
-	for (let o = 0; o < 48; o++) {
-		document.querySelectorAll(".circle")[o].style.border = "1px solid gray"
-
-	}
+	resetCircleColor();
 
 	adder.style.pointerEvents = "none";
-	for (let j = 0; j < sortedSlicedArray.length; j++) {
-		if (sortedSlicedArray[j] < 10) {
-			document.getElementById(`col${count}${j + 1}`).innerHTML = `0${sortedSlicedArray[j]}`;
-
-		} else document.getElementById(`col${count}${j + 1}`).innerHTML = sortedSlicedArray[j];
-
-	}
+	ticket();
 	if (luckySixGame["chosenSix"] && count <= 8) {
 
 		for (let i = 0; i < chosenNumbers.length; i++) {
