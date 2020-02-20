@@ -26,14 +26,16 @@ body {
 }
 
 .tg th {
-    /*  display: none; */
+    /*  */
+   /*  display: none;  */
     height: 46px;
     width: 46px;
     padding: 3px 3px;
 }
 
 .tg td {
-    /*  display: none; */
+    /*  */
+    /* display: none;  */
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -50,16 +52,13 @@ body {
     padding: 3px 1px;
 }
 
-/* .sum-ring {
-    border: 1px solid red;
-    height: 20px;
-    width: 10px;
-} */
 
 .sum {
     font-family: 'Rubik', sans-serif;
     text-align: center;
 }
+
+/* Balls */
 
 .drum-ball {
     position: absolute;
@@ -285,15 +284,58 @@ body {
     }
 }
 
+
+/* Media querries */
+
 @media screen and (max-width:1080px) {
     [data-aos-delay] {
         transition-delay: 0s !important;
     }
 }
 
-@media only screen and (max-width: 450px) {
+
+@media only screen and (max-width: 425px) {
+
+    .lucky-numbers {
+        text-align: center;
+        margin: 0 30px !important;
+    }
+
     .ring {
-        border: 1px solid gray;
+        
+        font-size: 1em;
+        font-weight: 600;
+        height: 26px;
+        width: 26px;
+        padding: 2px 0;
+        
+    }
+    .lucky-6-btn {
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 3px 3px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #3d768a;
+    }
+    .columns {
+        width: 70%;
+        margin: auto 50px;
+        height: 28px;
+        font-size: 1.3rem;
+        border-bottom: 1px solid;
+    }
+    
+
+}
+
+
+
+
+@media only screen and (max-width: 320px) {
+    .ring {
+       
         height: 20px;
         width: 20px;
         padding: 1px 0;
@@ -303,10 +345,10 @@ body {
         font-size: .6em;
     }
     .tg {
-        margin: auto !important;
+        margin: 0 !important;
     }
     .tn {
-        margin: auto !important;
+        margin: 0 !important;
     }
     .container {
         width: 100%;
@@ -329,9 +371,9 @@ body {
         justify-content: space-around;
     }
     .number-box {
-        margin: 20px auto 80px auto !important;
+        margin: 20px 0 80px 0 !important;
         height: 250px;
-        justify-content: center !important;
+        justify-content: start !important;
     }
     .drum-ball {
         left: 120px;
@@ -356,23 +398,7 @@ body {
     .ball-number {
         font-size: 1.9rem;
     }
-    .columns {
-        width: 70%;
-        margin: auto 50px;
-        height: 28px;
-        font-family: 'Rubik', sans-serif;
-        font-size: 1.3rem;
-        border-bottom: 1px solid;
-    }
-    .lucky-6-btn {
-        width: 150px;
-        height: 40px;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 3px 3px;
-        text-decoration: none;
-        text-shadow: 0px 1px 0px #3d768a;
-    }
+   
     .tg th {
         height: 20px;
         width: 20px;
@@ -394,4 +420,3 @@ body {
     }
 }
 
-@media only screen and (max-width: 360px) {}
