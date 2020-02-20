@@ -81,9 +81,9 @@ for (let y = 0; y < 8; y++) {
 			}
 
 			arrayAdd();
-
+			ticket();
 			setTimeout(function () {
-				ticket();
+				
 				resetCircleColor();
 				play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 			}, 900)
