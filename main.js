@@ -1,6 +1,4 @@
 
-
-
 let luckySixGame = {
 	"chosenSix": false,
 	"chosenEight": false,
@@ -120,7 +118,7 @@ randomNum.addEventListener("mousedown", function () {
 for (let y = 0; y < allColors.length; y++) {
 
 	allColors[y].addEventListener("mousedown", function () {
-		if (!luckySixGame["chosenSix"] /* && !luckySixGame["chosenEight"] */) {
+		if (!luckySixGame["chosenSix"]) {
 			count++;
 			this.style.pointerEvents = "none";
 			sortedSlicedArray = Object.values(luckySixGame["colors"])[y];
@@ -130,12 +128,9 @@ for (let y = 0; y < allColors.length; y++) {
 			setTimeout(function () {
 				playStyle()
 				resetCircleColor();
-
 			}, 300)
-
 			arrayAdd();
 			ticket();
-
 		}
 		if (count === 8) {
 			blockAdding();
