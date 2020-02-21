@@ -60,7 +60,7 @@ function timer(ms) {
 
 function blockAdding() {
 
-	luckySixGame["chosenEight"] = true;
+
 	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
 	randomNum.style.pointerEvents = "none";
 	for (let i = 0; i < 48; i++) {
@@ -70,7 +70,7 @@ function blockAdding() {
 	for (let j = 0; j < allColors.length; j++) {
 		allColors[j].style.pointerEvents = "none";
 	}
-	
+
 
 }
 
@@ -94,20 +94,24 @@ function resetCircleColor() {
 		document.querySelectorAll(".circle")[i].style.border = "1px solid gray";
 
 	}
+
+
+
 }
 
 // Generating 6 random numbers
 
 randomNum.addEventListener("mousedown", function () {
-	console.log(luckySixGame["chosenEight"])
 
+
+	resetCircleColor();
 	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
-	if (!luckySixGame["chosenEight"]) {
-		count++;
-		sortedSlicedArray = gen(6).sort((a, b) => a - b);
-		arrayAdd();
-		ticket();
-	}
+	count++;
+	sortedSlicedArray = gen(6).sort((a, b) => a - b);
+	arrayAdd();
+	ticket();
+
+
 	if (count === 8) {
 		blockAdding()
 
@@ -118,11 +122,11 @@ randomNum.addEventListener("mousedown", function () {
 
 // All colors
 
-for (let y = 0; y < 8; y++) {
+for (let y = 0; y < allColors.length; y++) {
 
 	allColors[y].addEventListener("mousedown", function () {
-		console.log(luckySixGame["chosenEight"])
-		if (!luckySixGame["chosenSix"] && !luckySixGame["chosenEight"]) {
+
+		if (!luckySixGame["chosenSix"] /* && !luckySixGame["chosenEight"] */) {
 			count++;
 			this.style.pointerEvents = "none";
 			sortedSlicedArray = Object.values(luckySixGame["colors"])[y];
@@ -142,7 +146,6 @@ for (let y = 0; y < 8; y++) {
 			blockAdding()
 
 		}
-		console.log(count)
 
 
 	})
@@ -152,15 +155,18 @@ for (let y = 0; y < 8; y++) {
 // Numbers choise
 
 for (let i = 0; i < checkedFields.length; i++) {
-
-
+	
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
+		randomNum.style.pointerEvents = "none";
+		randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
 		if (count === 8) {
-			blockAdding()
-
+			blockAdding();
+	
 		}
+		
 		if (!luckySixGame["chosenSix"]) {
+
 			checkedNumbers++;
 			this.style.pointerEvents = "none";
 			for (let j = 0; j < 6; j++) {
@@ -190,10 +196,10 @@ for (let i = 0; i < checkedFields.length; i++) {
 					circleColor.style.border = "1.5px solid black"
 				}
 			}
+
 			let clickedNumber = Number(this.id);
 			chosenNumbers.push(clickedNumber);
-
-
+			
 		}
 
 		if (checkedNumbers === 6) {
@@ -201,12 +207,9 @@ for (let i = 0; i < checkedFields.length; i++) {
 			adder.style.pointerEvents = "all";
 			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
 
+
 		}
 
-
-		/* if (count === 8) {
-			luckySixGame["chosenEight"] = true;
-		} */
 
 	})
 }
@@ -216,6 +219,8 @@ for (let i = 0; i < checkedFields.length; i++) {
 function add() {
 
 	count++;
+	randomNum.style.pointerEvents = "all";
+	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
 	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 	slicedArray = chosenNumbers.slice(index);
 	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
@@ -224,7 +229,7 @@ function add() {
 
 	adder.style.pointerEvents = "none";
 	ticket();
-	if (luckySixGame["chosenSix"] && count <= 8) {
+	if (luckySixGame["chosenSix"]) {
 
 		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
@@ -236,6 +241,10 @@ function add() {
 		index += 6;
 
 	}
+	if (count === 8) {
+		blockAdding();
+
+	}
 	adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
 
 
@@ -245,9 +254,9 @@ function add() {
 
 // Generate random 35/48 or 6/48 numbers
 
-function gen(abc = 35) {
+function gen(val = 35) {
 	let numbers = [];
-	for (let i = 0; i < abc; i++) {
+	for (let i = 0; i < val; i++) {
 		let add = true;
 		let randomNumber = Math.floor(Math.random() * 48) + 1;
 		for (let y = 0; y < 48; y++) {
@@ -271,7 +280,7 @@ console.log(num)
 
 // Displaying 35 numbers with delay
 async function playGame() {
-
+	
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	setTimeout(function () {
 		drawnNumberBox.style.display = "block";
