@@ -105,7 +105,7 @@ function resetCircleColor() {
 
 randomNum.addEventListener("mousedown", function () {
 
-
+	play.style.animation = "tada 1s ease-in";
 	resetCircleColor();
 	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 	count++;
@@ -307,7 +307,7 @@ async function playGame() {
 		for (let n = 0; n < num.length; n++) {
 			for (let b = 0; b <= 6; b++) {
 				for (let a = 1; a <= count; a++) {
-					if (num[j] === luckySixGame['arrays'][`arr${a}`][0][b]) {
+					if (num[j] === luckySixGame["arrays"][`arr${a}`][0][b]) {
 
 						setTimeout(function () {
 							document.querySelector("#col" + a + (b + 1)).style.fontWeight = "1000";
@@ -321,7 +321,7 @@ async function playGame() {
 
 			}
 			document.getElementById("res").innerHTML = `${num[j]}`;
-
+			/* document.getElementById("res").classList.add("ball-number-anim") */
 			setTimeout(function () {
 				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
 
@@ -329,28 +329,28 @@ async function playGame() {
 			/* drumBall.style.animation = `bounceIn 3s ${num.length}`; */
 			drumBall.classList.add("test");
 			if (num[j] === luckySixGame["colors"]["red"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ff0000, #000)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #ff0000, #000)"
 
 			} if (num[j] === luckySixGame["colors"]["green"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #33cc33, #000)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #33cc33, #000)"
 
 			} if (num[j] === luckySixGame["colors"]["blue"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #5cabff, #000)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #5cabff, #000)"
 
 			} if (num[j] === luckySixGame["colors"]["violet"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #9933ff, #000)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #9933ff, #000)"
 
 			} if (num[j] === luckySixGame["colors"]["brown"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #8B4513, #383838)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #8B4513, #383838)"
 
 			} if (num[j] === luckySixGame["colors"]["yellow"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)"
 
 			} if (num[j] === luckySixGame["colors"]["orange"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ffa500, #996300)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #ffa500, #996300)"
 
 			} if (num[j] === luckySixGame["colors"]["black"][n]) {
-				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #606060, #000)'
+				drumBall.style.background = "radial-gradient(circle at 30px 30px, #606060, #000)"
 
 			}
 
