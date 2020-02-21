@@ -75,7 +75,9 @@ function blockAdding() {
 }
 
 randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
+randomNum.style.animation = `tada 1s ease-in`;
 // Printing numbers to ticket
+
 
 function ticket() {
 	for (let j = 0; j < sortedSlicedArray.length; j++) {
@@ -133,6 +135,10 @@ for (let y = 0; y < allColors.length; y++) {
 			for (let i = 0; i < sortedSlicedArray.length; i++) {
 				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border = `1.5px solid ${COLORS[y]}`
 			}
+			setTimeout(function(){
+				play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+				play.style.animation = "tada 1s ease-in"
+			},300)
 
 			arrayAdd();
 			ticket();
@@ -144,7 +150,7 @@ for (let y = 0; y < allColors.length; y++) {
 		}
 		if (count === 8) {
 			blockAdding()
-
+			
 		}
 
 
@@ -206,7 +212,9 @@ for (let i = 0; i < checkedFields.length; i++) {
 			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
 			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
-
+			setTimeout(function(){
+				adder.style.animation = "tada 1s ease-in";
+			},500)
 
 		}
 
@@ -221,9 +229,12 @@ function add() {
 	count++;
 	randomNum.style.pointerEvents = "all";
 	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
-	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 	slicedArray = chosenNumbers.slice(index);
 	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
+	setTimeout(function(){
+		play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+		play.style.animation = "tada 1s ease-in"
+	},300)
 	arrayAdd();
 	resetCircleColor();
 
