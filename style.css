@@ -99,7 +99,6 @@ body {
     margin: auto;
     display: table;
     font-size: 3.05rem;
-    
 }
 
 .ball-number-anim {
@@ -139,7 +138,7 @@ body {
 
 .drawn-numbers-box {
     display: none;
-    position: absolute;
+    position: relative;
 }
 
 .ring {
@@ -244,11 +243,15 @@ body {
 /* Animations */
 
 @keyframes scale {
-    0% {
-        transform: scale(0);
+    from {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
-    100% {
-        transform: scale(1);
+    60% {
+        opacity: 1;
+        transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
     }
 }
 
@@ -279,19 +282,14 @@ body {
 }
 
 @keyframes bounceOut {
-    20% {
-        -webkit-transform: scale3d(.9, .9, .9);
-        transform: scale3d(.9, .9, .9);
-    }
-    50%, 55% {
+    40% {
         opacity: 1;
-        -webkit-transform: scale3d(1.1, 1.1, 1.1);
-        transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
     }
-    100% {
+    to {
         opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
+        transform: scale(0.1) translate3d(-2000px, 0, 0);
+        transform-origin: left center;
     }
 }
 
@@ -314,7 +312,6 @@ body {
 }
 
 @keyframes slideInLeft {
-    
     from {
         transform: translate3d(-45%, 0, 0);
         opacity: 0;
@@ -324,7 +321,6 @@ body {
         opacity: 1;
     }
 }
-
 
 /* Media querries */
 
@@ -376,7 +372,6 @@ body {
     }
     .ball-number {
         font-size: 2.5rem;
-        
     }
 }
 
@@ -404,7 +399,6 @@ body {
     .drawn-numbers-box {
         display: none;
         width: 400px !important;
-        position: absolute;
         padding: 0;
         margin: 0 !important;
     }
