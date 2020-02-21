@@ -70,6 +70,11 @@ body {
     /* background: radial-gradient(circle at 30px 30px, #ff0000, #000); */
 }
 
+.test {
+    animation: bounceIn 3s 35;
+    
+}
+
 .inner-circle {
     position: relative;
     border-radius: 100%;

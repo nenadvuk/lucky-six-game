@@ -315,8 +315,8 @@ async function playGame() {
 				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
 
 			}, 3000);
-			drumBall.style.animation = `bounceIn 3s ${num.length}`;
-
+			/* drumBall.style.animation = `bounceIn 3s ${num.length}`; */
+			drumBall.classList.add("test");
 			if (num[j] === luckySixGame["colors"]["red"][n]) {
 				drumBall.style.background = 'radial-gradient(circle at 30px 30px, #ff0000, #000)'
 
