@@ -6,9 +6,14 @@ let luckySixGame = {
 		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
 	},
 	"colors": {
-		"red": [1, 9, 17, 25, 33, 41], "green": [2, 10, 18, 26, 34, 42], "blue": [3, 11, 19, 27, 35, 43],
-		"violet": [4, 12, 20, 28, 36, 44], "brown": [5, 13, 21, 29, 37, 45], "yellow": [6, 14, 22, 30, 38, 46],
-		"orange": [7, 15, 23, 31, 39, 47], "black": [8, 16, 24, 32, 40, 48],
+		"red": [1, 9, 17, 25, 33, 41],
+		"green": [2, 10, 18, 26, 34, 42],
+		"blue": [3, 11, 19, 27, 35, 43],
+		"violet": [4, 12, 20, 28, 36, 44],
+		"brown": [5, 13, 21, 29, 37, 45],
+		"yellow": [6, 14, 22, 30, 38, 46],
+		"orange": [7, 15, 23, 31, 39, 47],
+		"black": [8, 16, 24, 32, 40, 48],
 
 	},
 
@@ -46,15 +51,11 @@ play.addEventListener("click", playGame);
 
 // Pushing chosen sorted numbers to an array
 
-function arrayAdd() {
-	luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
 
-}
+const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
 
+const timer = (ms) => new Promise(res => setTimeout(res, ms));
 
-function timer(ms) {
-	return new Promise(res => setTimeout(res, ms));
-}
 
 function blockAdding() {
 
@@ -75,7 +76,7 @@ randomNum.style.animation = `tada 1s ease-in`;
 // Printing numbers to ticket
 
 
-function ticket() {
+/* function ticket() {
 
 	for (let j = 0; j < sortedSlicedArray.length; j++) {
 		if (sortedSlicedArray[j] < 10) {
@@ -83,19 +84,19 @@ function ticket() {
 
 		} else document.getElementById(`col${count}${j + 1}`).innerHTML = sortedSlicedArray[j];
 	}
-}
+}  */
 
-function playStyle() {
-	play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
-}
+const ticket = () => sortedSlicedArray.forEach(function(array, ind){
+	array < 10 ? document.getElementById(`col${count}${ind+1}`).innerHTML = `0${array}` :
+	document.getElementById(`col${count}${ind+1}`).innerHTML = `${array}`
+})
+
+const playStyle = () => play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
 
 // Reseting cirle colors
 
-function resetCircleColor() {
-	for (let i = 0; i < 48; i++) {
-		circle[i].style.border = "1px solid gray";
-	}
-}
+const resetCircleColor = () => circle.forEach(value => value.style.border = "1px solid gray")
+
 
 // Generating 6 random numbers
 
@@ -111,6 +112,7 @@ randomNum.addEventListener("mousedown", function () {
 		blockAdding();
 		play.style.animation = "tada 1s ease-in";
 	}
+	
 })
 
 // All colors
