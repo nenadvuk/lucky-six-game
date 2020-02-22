@@ -6,19 +6,20 @@ let luckySixGame = {
 		"arr1": [], "arr2": [], "arr3": [], "arr4": [], "arr5": [], "arr6": [], "arr7": [], "arr8": []
 	},
 	"colors": {
-		"red": [1, 9, 17, 25, 33, 41],
-		"green": [2, 10, 18, 26, 34, 42],
-		"blue": [3, 11, 19, 27, 35, 43],
-		"violet": [4, 12, 20, 28, 36, 44],
-		"brown": [5, 13, 21, 29, 37, 45],
-		"yellow": [6, 14, 22, 30, 38, 46],
-		"orange": [7, 15, 23, 31, 39, 47],
-		"black": [8, 16, 24, 32, 40, 48],
+		"red": [[1, 9, 17, 25, 33, 41], ["radial-gradient(circle at 30px 30px, #ff0000, #000)"]],
+		"green": [[2, 10, 18, 26, 34, 42], ["radial-gradient(circle at 30px 30px, #33cc33, #000)"]],
+		"blue": [[3, 11, 19, 27, 35, 43], ["radial-gradient(circle at 30px 30px, #5cabff, #000)"]],
+		"violet": [[4, 12, 20, 28, 36, 44], ["radial-gradient(circle at 30px 30px, #9933ff, #000)"]],
+		"brown": [[5, 13, 21, 29, 37, 45], ["radial-gradient(circle at 30px 30px, #8B4513, #383838)"]],
+		"yellow": [[6, 14, 22, 30, 38, 46], ["radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)"]],
+		"orange": [[7, 15, 23, 31, 39, 47], ["radial-gradient(circle at 30px 30px, #ffa500, #996300)"]],
+		"black": [[8, 16, 24, 32, 40, 48], ["radial-gradient(circle at 30px 30px, #606060, #000)"]],
 
 	},
 
 }
 
+console.log(luckySixGame["colors"]["green"][1])
 
 const allColors = document.querySelectorAll(".balls-colors");
 const adder = document.querySelector("#adder");
@@ -28,6 +29,9 @@ const choise = document.querySelector("#choise");
 const play = document.querySelector("#play");
 const randomNum = document.querySelector("#addRandomNumbers");
 const circle = document.querySelectorAll(".circle");
+const GREEN = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+const RED = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
+const BALL_COLOR = luckySixGame["colors"];
 
 let checkedFields = document.querySelectorAll("td");
 let chosenNumbers = [];
@@ -38,10 +42,7 @@ let count = 0;
 let num = gen();
 let index = 0;
 
-let COLORS = Object.keys(luckySixGame["colors"]);
-
-// red  "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)"
-// green "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
+let COLORS = Object.keys(BALL_COLOR);
 
 // Event listeners
 
@@ -52,35 +53,35 @@ play.addEventListener("click", playGame);
 // Pushing chosen sorted numbers to an array
 
 
-const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray)
+const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray);
 
 const timer = (ms) => new Promise(res => setTimeout(res, ms));
 
 
 const blockAdding = () => {
-	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
+	randomNum.style.background = RED;
 	randomNum.style.pointerEvents = "none";
 	circle.forEach((item, index) => {
 		item.style.pointerEvents = "none";
 		checkedFields[index].style.pointerEvents = "none";
 	});
 	allColors.forEach((colors) => {
-		colors.style.pointerEvents = "none"
+		colors.style.pointerEvents = "none";
 	})
 }
 
-randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
+randomNum.style.background = GREEN;
 randomNum.style.animation = `tada 1s ease-in`;
 
 // Printing numbers to ticket
 
 
-const ticket = () => sortedSlicedArray.forEach(function (array, ind) {
+const ticket = () => sortedSlicedArray.forEach((array, ind) => {
 	array < 10 ? document.getElementById(`col${count}${ind + 1}`).innerHTML = `0${array}` :
 		document.getElementById(`col${count}${ind + 1}`).innerHTML = `${array}`
-})
+});
 
-const playStyle = () => play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+const playStyle = () => play.style.background = GREEN;
 
 // Reseting cirle colors
 
@@ -112,7 +113,7 @@ for (let y = 0; y < allColors.length; y++) {
 		if (!luckySixGame["chosenSix"]) {
 			count++;
 			this.style.pointerEvents = "none";
-			sortedSlicedArray = Object.values(luckySixGame["colors"])[y];
+			sortedSlicedArray = Object.values(BALL_COLOR)[y];
 			for (let i = 0; i < sortedSlicedArray.length; i++) {
 				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border = `1.5px solid ${COLORS[y]}`
 			}
@@ -142,7 +143,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 
 		}
 		randomNum.style.pointerEvents = "none";
-		randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
+		randomNum.style.background = RED;
 		if (count === 8) {
 			blockAdding();
 		}
@@ -151,28 +152,28 @@ for (let i = 0; i < checkedFields.length; i++) {
 			this.style.pointerEvents = "none";
 			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
-				if (this.id == luckySixGame["colors"]["red"][j]) {
+				if (this.id == BALL_COLOR["red"][j]) {
 					circleColor.style.border = "1.5px solid red"
 
-				} if (this.id == luckySixGame["colors"]["green"][j]) {
+				} if (this.id == BALL_COLOR["green"][j]) {
 					circleColor.style.border = "1.5px solid #33cc33 "
 
-				} if (this.id == luckySixGame["colors"]["blue"][j]) {
+				} if (this.id == BALL_COLOR["blue"][j]) {
 					circleColor.style.border = "1.5px solid #1a75ff"
 
-				} if (this.id == luckySixGame["colors"]["violet"][j]) {
+				} if (this.id == BALL_COLOR["violet"][j]) {
 					circleColor.style.border = "1.5px solid #9933ff"
 
-				} if (this.id == luckySixGame["colors"]["brown"][j]) {
+				} if (this.id == BALL_COLOR["brown"][j]) {
 					circleColor.style.border = "1.5px solid #663300"
 
-				} if (this.id == luckySixGame["colors"]["yellow"][j]) {
+				} if (this.id == BALL_COLOR["yellow"][j]) {
 					circleColor.style.border = "1.5px solid #ffff33"
 
-				} if (this.id == luckySixGame["colors"]["orange"][j]) {
+				} if (this.id == BALL_COLOR["orange"][j]) {
 					circleColor.style.border = "1.5px solid #ff9900"
 
-				} if (this.id == luckySixGame["colors"]["black"][j]) {
+				} if (this.id == BALL_COLOR["black"][j]) {
 					circleColor.style.border = "1.5px solid black"
 				}
 			}
@@ -182,7 +183,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 		if (checkedNumbers === 6) {
 			luckySixGame["chosenSix"] = true;
 			adder.style.pointerEvents = "all";
-			adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+			adder.style.background = GREEN;
 			setTimeout(function () {
 				adder.style.animation = "tada 1s ease-in";
 			}, 500)
@@ -199,7 +200,7 @@ function add() {
 	}
 	count++;
 	randomNum.style.pointerEvents = "all";
-	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
+	randomNum.style.background = GREEN;
 	slicedArray = chosenNumbers.slice(index);
 	sortedSlicedArray = slicedArray.sort((a, b) => a - b);
 	playStyle();
@@ -219,7 +220,7 @@ function add() {
 		blockAdding();
 		play.style.animation = "tada 1s ease-in";
 	}
-	adder.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
+	adder.style.background = RED;
 
 }
 
@@ -272,36 +273,34 @@ async function playGame() {
 				}
 			}
 			document.getElementById("res").innerHTML = `${num[j]}`;
-			/* document.getElementById("res").classList.add("ball-number-anim") */
 			setTimeout(function () {
 				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
 
 			}, 3000);
-			/* drumBall.style.animation = `bounceIn 3s ${num.length}`; */
 			drumBall.classList.add("test");
-			if (num[j] === luckySixGame["colors"]["red"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #ff0000, #000)"
+			if (num[j] === BALL_COLOR["red"][0][n]) {
+				drumBall.style.background = BALL_COLOR["red"][1]
 
-			} if (num[j] === luckySixGame["colors"]["green"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #33cc33, #000)"
+			} if (num[j] === BALL_COLOR["green"][0][n]) {
+				drumBall.style.background = BALL_COLOR["green"][1]
 
-			} if (num[j] === luckySixGame["colors"]["blue"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #5cabff, #000)"
+			} if (num[j] === BALL_COLOR["blue"][0][n]) {
+				drumBall.style.background = BALL_COLOR["blue"][1]
 
-			} if (num[j] === luckySixGame["colors"]["violet"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #9933ff, #000)"
+			} if (num[j] === BALL_COLOR["violet"][0][n]) {
+				drumBall.style.background = BALL_COLOR["violet"][1]
 
-			} if (num[j] === luckySixGame["colors"]["brown"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #8B4513, #383838)"
+			} if (num[j] === BALL_COLOR["brown"][0][n]) {
+				drumBall.style.background = BALL_COLOR["brown"][1]
 
-			} if (num[j] === luckySixGame["colors"]["yellow"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #FFFF00, #FFA500)"
+			} if (num[j] === BALL_COLOR["yellow"][0][n]) {
+				drumBall.style.background = BALL_COLOR["yellow"][1]
 
-			} if (num[j] === luckySixGame["colors"]["orange"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #ffa500, #996300)"
+			} if (num[j] === BALL_COLOR["orange"][0][n]) {
+				drumBall.style.background = BALL_COLOR["orange"][1]
 
-			} if (num[j] === luckySixGame["colors"]["black"][n]) {
-				drumBall.style.background = "radial-gradient(circle at 30px 30px, #606060, #000)"
+			} if (num[j] === BALL_COLOR["black"][0][n]) {
+				drumBall.style.background = BALL_COLOR["black"][1]
 			}
 		} await timer(3000)
 	}
