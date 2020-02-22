@@ -19,7 +19,7 @@ let luckySixGame = {
 
 }
 
-console.log(luckySixGame["colors"]["green"][1])
+
 
 const allColors = document.querySelectorAll(".balls-colors");
 const adder = document.querySelector("#adder");
@@ -45,6 +45,7 @@ let index = 0;
 let COLORS = Object.keys(BALL_COLOR);
 
 // Event listeners
+console.log(BALL_COLOR["green"][0])
 
 adder.addEventListener("click", add);
 play.addEventListener("click", playGame);
@@ -56,7 +57,6 @@ play.addEventListener("click", playGame);
 const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray);
 
 const timer = (ms) => new Promise(res => setTimeout(res, ms));
-
 
 const blockAdding = () => {
 	randomNum.style.background = RED;
@@ -113,7 +113,7 @@ for (let y = 0; y < allColors.length; y++) {
 		if (!luckySixGame["chosenSix"]) {
 			count++;
 			this.style.pointerEvents = "none";
-			sortedSlicedArray = Object.values(BALL_COLOR)[y];
+			sortedSlicedArray = Object.values(BALL_COLOR)[y][0];
 			for (let i = 0; i < sortedSlicedArray.length; i++) {
 				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border = `1.5px solid ${COLORS[y]}`
 			}
