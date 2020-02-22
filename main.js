@@ -57,17 +57,16 @@ const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedAr
 const timer = (ms) => new Promise(res => setTimeout(res, ms));
 
 
-function blockAdding() {
-
+const blockAdding = () => {
 	randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #f70000 100%)";
 	randomNum.style.pointerEvents = "none";
-	for (let i = 0; i < 48; i++) {
-		circle[i].style.pointerEvents = "none";
-		checkedFields[i].style.pointerEvents = "none";
-	}
-	for (let j = 0; j < allColors.length; j++) {
-		allColors[j].style.pointerEvents = "none";
-	}
+	circle.forEach((item, index) => {
+		item.style.pointerEvents = "none";
+		checkedFields[index].style.pointerEvents = "none";
+	});
+	allColors.forEach((colors) => {
+		colors.style.pointerEvents = "none"
+	})
 }
 
 randomNum.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)"
@@ -76,19 +75,9 @@ randomNum.style.animation = `tada 1s ease-in`;
 // Printing numbers to ticket
 
 
-/* function ticket() {
-
-	for (let j = 0; j < sortedSlicedArray.length; j++) {
-		if (sortedSlicedArray[j] < 10) {
-			document.getElementById(`col${count}${j + 1}`).innerHTML = `0${sortedSlicedArray[j]}`;
-
-		} else document.getElementById(`col${count}${j + 1}`).innerHTML = sortedSlicedArray[j];
-	}
-}  */
-
-const ticket = () => sortedSlicedArray.forEach(function(array, ind){
-	array < 10 ? document.getElementById(`col${count}${ind+1}`).innerHTML = `0${array}` :
-	document.getElementById(`col${count}${ind+1}`).innerHTML = `${array}`
+const ticket = () => sortedSlicedArray.forEach(function (array, ind) {
+	array < 10 ? document.getElementById(`col${count}${ind + 1}`).innerHTML = `0${array}` :
+		document.getElementById(`col${count}${ind + 1}`).innerHTML = `${array}`
 })
 
 const playStyle = () => play.style.background = "linear-gradient(to bottom, #e8ebec 5%, #02740b 100%)";
@@ -112,7 +101,7 @@ randomNum.addEventListener("mousedown", function () {
 		blockAdding();
 		play.style.animation = "tada 1s ease-in";
 	}
-	
+
 })
 
 // All colors
@@ -222,7 +211,6 @@ function add() {
 		for (let i = 0; i < chosenNumbers.length; i++) {
 			checkedFields[chosenNumbers[i] - 1].style.pointerEvents = "all";
 		}
-		console.log(slicedArray)
 		luckySixGame["chosenSix"] = false;
 		checkedNumbers = 0;
 		index += 6;
