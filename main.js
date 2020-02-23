@@ -45,12 +45,17 @@ let index = 0;
 let COLORS = Object.keys(BALL_COLOR);
 
 // Event listeners
-console.log(BALL_COLOR["green"][0])
 
 adder.addEventListener("click", add);
 play.addEventListener("click", playGame);
 
-
+/* setInterval(function(){
+for (let i = 0; i < allColors.length; i++) {
+	
+	
+		allColors[i].style.animation = "tada 1s ease-in"
+	}
+},500) */
 // Pushing chosen sorted numbers to an array
 
 
@@ -152,28 +157,28 @@ for (let i = 0; i < checkedFields.length; i++) {
 			this.style.pointerEvents = "none";
 			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
-				if (this.id == BALL_COLOR["red"][j]) {
+				if (this.id == BALL_COLOR["red"][0][j]) {
 					circleColor.style.border = "1.5px solid red"
 
-				} if (this.id == BALL_COLOR["green"][j]) {
+				} if (this.id == BALL_COLOR["green"][0][j]) {
 					circleColor.style.border = "1.5px solid #33cc33 "
 
-				} if (this.id == BALL_COLOR["blue"][j]) {
+				} if (this.id == BALL_COLOR["blue"][0][j]) {
 					circleColor.style.border = "1.5px solid #1a75ff"
 
-				} if (this.id == BALL_COLOR["violet"][j]) {
+				} if (this.id == BALL_COLOR["violet"][0][j]) {
 					circleColor.style.border = "1.5px solid #9933ff"
 
-				} if (this.id == BALL_COLOR["brown"][j]) {
+				} if (this.id == BALL_COLOR["brown"][0][j]) {
 					circleColor.style.border = "1.5px solid #663300"
 
-				} if (this.id == BALL_COLOR["yellow"][j]) {
+				} if (this.id == BALL_COLOR["yellow"][0][j]) {
 					circleColor.style.border = "1.5px solid #ffff33"
 
-				} if (this.id == BALL_COLOR["orange"][j]) {
+				} if (this.id == BALL_COLOR["orange"][0][j]) {
 					circleColor.style.border = "1.5px solid #ff9900"
 
-				} if (this.id == BALL_COLOR["black"][j]) {
+				} if (this.id == BALL_COLOR["black"][0][j]) {
 					circleColor.style.border = "1.5px solid black"
 				}
 			}
