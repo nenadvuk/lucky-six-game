@@ -59,7 +59,7 @@ body {
 }
 
 .test {
-    animation: bounceIn 3s 35;
+    animation: bounceIn 3.01s 35;
 }
 
 /* Balls */

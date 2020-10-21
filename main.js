@@ -256,7 +256,7 @@ console.log(num)
 
 // Displaying 35 numbers with delay
 async function playGame() {
-
+	drumBall.classList.add("test");
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	setTimeout(function () {
 		drawnNumberBox.style.display = "block";
@@ -282,7 +282,7 @@ async function playGame() {
 				document.getElementById(`drawn${j + 1}`).innerHTML = `${num[j]}`;
 
 			}, 3000);
-			drumBall.classList.add("test");
+			
 			if (num[j] === BALL_COLOR["red"][0][n]) {
 				drumBall.style.background = BALL_COLOR["red"][1]
 
