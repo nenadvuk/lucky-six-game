@@ -158,28 +158,28 @@ for (let i = 0; i < checkedFields.length; i++) {
 			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
 				if (this.id == BALL_COLOR["red"][0][j]) {
-					circleColor.style.border = "1.5px solid red"
+					circleColor.classList.add("circle-red-clicked");
 
 				} if (this.id == BALL_COLOR["green"][0][j]) {
-					circleColor.style.border = "1.5px solid #33cc33 "
+					circleColor.classList.add("circle-green-clicked");
 
 				} if (this.id == BALL_COLOR["blue"][0][j]) {
-					circleColor.style.border = "1.5px solid #1a75ff"
+					circleColor.classList.add("circle-blue-clicked");
 
 				} if (this.id == BALL_COLOR["violet"][0][j]) {
-					circleColor.style.border = "1.5px solid #9933ff"
+					circleColor.classList.add("circle-violet-clicked");
 
 				} if (this.id == BALL_COLOR["brown"][0][j]) {
-					circleColor.style.border = "1.5px solid #663300"
+					circleColor.classList.add("circle-brown-clicked");
 
 				} if (this.id == BALL_COLOR["yellow"][0][j]) {
-					circleColor.style.border = "1.5px solid #ffff33"
+					circleColor.classList.add("circle-yellow-clicked");
 
 				} if (this.id == BALL_COLOR["orange"][0][j]) {
-					circleColor.style.border = "1.5px solid #ff9900"
+					circleColor.classList.add("circle-orange-clicked");
 
 				} if (this.id == BALL_COLOR["black"][0][j]) {
-					circleColor.style.border = "1.5px solid black"
+					circleColor.classList.add("circle-black-clicked");
 				}
 			}
 			let clickedNumber = Number(this.id);
