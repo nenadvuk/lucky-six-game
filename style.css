@@ -23,7 +23,10 @@ html {
 }
 
 body {
-    background-color: wheat;
+    /* background-color: rgb(125, 158, 252); */
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);    
+    height: 100vh;
 }
 
 .tg th {
@@ -58,7 +61,7 @@ body {
     text-align: center;
 }
 
-.test {
+.ball-animation {
     animation: bounceIn 3.011s 35;
 }
 
@@ -209,8 +212,6 @@ body {
     opacity: .3;
     
 } */
-
-
 
 .green {
     background-color: #33cc33;
