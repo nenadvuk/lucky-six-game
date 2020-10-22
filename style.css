@@ -59,7 +59,7 @@ body {
 }
 
 .test {
-    animation: bounceIn 3.01s 35;
+    animation: bounceIn 3.011s 35;
 }
 
 /* Balls */
@@ -210,7 +210,7 @@ body {
     
 } */
 
-.circle-red:hover {}
+
 
 .green {
     background-color: #33cc33;
