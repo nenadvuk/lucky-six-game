@@ -23,19 +23,22 @@ html {
 }
 
 body {
-    /* background-color: rgb(125, 158, 252); */
     background-color: #74EBD5;
     background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     height: 100vh;
 }
 
 .tg th {
+    /*  */
+    /*  display: none;  */
     height: 46px;
     width: 46px;
     padding: 3px 3px;
 }
 
 .tg td {
+    /*  */
+    /* display: none;  */
     text-align: center;
     font-family: Arial, sans-serif;
     font-size: 14px;
@@ -57,7 +60,7 @@ body {
     text-align: center;
 }
 
-.ball-animation {
+.test {
     animation: bounceIn 3.02s 35;
 }
 
@@ -172,7 +175,7 @@ body {
     box-shadow: 0px 10px 14px -7px #276873;
     background: linear-gradient(to bottom, #e8ebec 5%, #f70000 100%);
     background-color: #599bb3;
-    border-radius: 12px;
+    border-radius: 8px;
     width: 150px;
     display: inline-block;
     cursor: pointer;
@@ -203,101 +206,13 @@ body {
     background-color: red;
 }
 
-.circle-red:hover {
+/* .circle-red:hover {
     background-color: red;
-    opacity: .5;
-    color: white;
-}
+    opacity: .3;
+    
+} */
 
-.circle-red-clicked {
-    background-color: red;
-    opacity: .8;
-    color: white;
-}
-
-.circle-green:hover {
-    background-color: #33cc33;
-    opacity: .5;
-    color: white;
-}
-
-.circle-green-clicked {
-    background-color: #33cc33;
-    opacity: .8;
-    color: white;
-}
-
-.circle-blue:hover {
-    background-color: #1a75ff;
-    opacity: .5;
-    color: white;
-}
-
-.circle-blue-clicked {
-    background-color: #1a75ff;
-    opacity: .8;
-    color: white;
-}
-
-.circle-violet:hover {
-    background-color: #9933ff;
-    opacity: .5;
-    color: white;
-}
-
-.circle-violet-clicked {
-    background-color: #9933ff;
-    opacity: .8;
-    color: white;
-}
-
-.circle-brown:hover {
-    background-color: #663300;
-    opacity: .5;
-    color: white;
-}
-
-.circle-brown-clicked {
-    background-color: #663300;
-    opacity: .8;
-    color: white;
-}
-
-.circle-yellow:hover {
-    background-color: #ffff33;
-    opacity: .5;
-    color: black;
-}
-
-.circle-yellow-clicked {
-    background-color: #ffff33;
-    opacity: .8;
-    color: black;
-}
-
-.circle-orange:hover {
-    background-color: #ff9900;
-    opacity: .5;
-    color: white;
-}
-
-.circle-orange-clicked {
-    background-color: #ff9900;
-    opacity: .8;
-    color: white;
-}
-
-.circle-black:hover {
-    background-color: black;
-    opacity: .5;
-    color: white;
-}
-
-.circle-black-clicked {
-    background-color: black;
-    opacity: .8;
-    color: white;
-}
+.circle-red:hover {}
 
 .green {
     background-color: #33cc33;
@@ -542,3 +457,103 @@ body {
         width: 30px;
     }
 }
+
+
+
+/*
+.circle-red:hover {
+    background-color: red;
+    opacity: .5;
+    color: white;
+}
+
+.circle-red-clicked {
+    background-color: red;
+    opacity: .8;
+    color: white;
+}
+
+.circle-green:hover {
+    background-color: #33cc33;
+    opacity: .5;
+    color: white;
+}
+
+.circle-green-clicked {
+    background-color: #33cc33;
+    opacity: .8;
+    color: white;
+}
+
+.circle-blue:hover {
+    background-color: #1a75ff;
+    opacity: .5;
+    color: white;
+}
+
+.circle-blue-clicked {
+    background-color: #1a75ff;
+    opacity: .8;
+    color: white;
+}
+
+.circle-violet:hover {
+    background-color: #9933ff;
+    opacity: .5;
+    color: white;
+}
+
+.circle-violet-clicked {
+    background-color: #9933ff;
+    opacity: .8;
+    color: white;
+}
+
+.circle-brown:hover {
+    background-color: #663300;
+    opacity: .5;
+    color: white;
+}
+
+.circle-brown-clicked {
+    background-color: #663300;
+    opacity: .8;
+    color: white;
+}
+
+.circle-yellow:hover {
+    background-color: #ffff33;
+    opacity: .5;
+    color: black;
+}
+
+.circle-yellow-clicked {
+    background-color: #ffff33;
+    opacity: .8;
+    color: black;
+}
+
+.circle-orange:hover {
+    background-color: #ff9900;
+    opacity: .5;
+    color: white;
+}
+
+.circle-orange-clicked {
+    background-color: #ff9900;
+    opacity: .8;
+    color: white;
+}
+
+.circle-black:hover {
+    background-color: black;
+    opacity: .5;
+    color: white;
+}
+
+.circle-black-clicked {
+    background-color: black;
+    opacity: .8;
+    color: white;
+}
+*/

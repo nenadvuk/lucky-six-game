@@ -158,28 +158,28 @@ for (let i = 0; i < checkedFields.length; i++) {
 			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
 				if (this.id == BALL_COLOR["red"][0][j]) {
-					circleColor.classList.add("circle-red-clicked");
+					circleColor.style.border = "1.5px solid red"
 
 				} if (this.id == BALL_COLOR["green"][0][j]) {
-					circleColor.classList.add("circle-green-clicked");
+					circleColor.style.border = "1.5px solid #33cc33 "
 
 				} if (this.id == BALL_COLOR["blue"][0][j]) {
-					circleColor.classList.add("circle-blue-clicked");
+					circleColor.style.border = "1.5px solid #1a75ff"
 
 				} if (this.id == BALL_COLOR["violet"][0][j]) {
-					circleColor.classList.add("circle-violet-clicked");
+					circleColor.style.border = "1.5px solid #9933ff"
 
 				} if (this.id == BALL_COLOR["brown"][0][j]) {
-					circleColor.classList.add("circle-brown-clicked");
+					circleColor.style.border = "1.5px solid #663300"
 
 				} if (this.id == BALL_COLOR["yellow"][0][j]) {
-					circleColor.classList.add("circle-yellow-clicked");
+					circleColor.style.border = "1.5px solid #ffff33"
 
 				} if (this.id == BALL_COLOR["orange"][0][j]) {
-					circleColor.classList.add("circle-orange-clicked");
+					circleColor.style.border = "1.5px solid #ff9900"
 
 				} if (this.id == BALL_COLOR["black"][0][j]) {
-					circleColor.classList.add("circle-black-clicked");
+					circleColor.style.border = "1.5px solid black"
 				}
 			}
 			let clickedNumber = Number(this.id);
@@ -256,7 +256,7 @@ console.log(num)
 
 // Displaying 35 numbers with delay
 async function playGame() {
-	drumBall.classList.add("ball-animation");
+	drumBall.classList.add("test");
 	document.querySelector(".tg").style.animation = "bounceOut 1s ease-in";
 	setTimeout(function () {
 		drawnNumberBox.style.display = "block";
@@ -273,6 +273,7 @@ async function playGame() {
 					if (num[j] === luckySixGame["arrays"][`arr${a}`][0][b]) {
 						setTimeout(function () {
 							document.querySelector("#col" + a + (b + 1)).style.fontWeight = "1000";
+
 						}, 3000);
 					}
 				}
@@ -311,6 +312,7 @@ async function playGame() {
 	}
 }
 
+console.time(playGame)
 
 
 
