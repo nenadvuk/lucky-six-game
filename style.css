@@ -61,7 +61,7 @@ body {
 }
 
 .test {
-    animation: bounceIn 3.02s 35;
+    animation: bounceIn 3.01s 35;
 }
 
 /* Balls */
@@ -206,13 +206,6 @@ body {
     background-color: red;
 }
 
-/* .circle-red:hover {
-    background-color: red;
-    opacity: .3;
-    
-} */
-
-.circle-red:hover {}
 
 .green {
     background-color: #33cc33;
@@ -460,100 +453,3 @@ body {
 
 
 
-/*
-.circle-red:hover {
-    background-color: red;
-    opacity: .5;
-    color: white;
-}
-
-.circle-red-clicked {
-    background-color: red;
-    opacity: .8;
-    color: white;
-}
-
-.circle-green:hover {
-    background-color: #33cc33;
-    opacity: .5;
-    color: white;
-}
-
-.circle-green-clicked {
-    background-color: #33cc33;
-    opacity: .8;
-    color: white;
-}
-
-.circle-blue:hover {
-    background-color: #1a75ff;
-    opacity: .5;
-    color: white;
-}
-
-.circle-blue-clicked {
-    background-color: #1a75ff;
-    opacity: .8;
-    color: white;
-}
-
-.circle-violet:hover {
-    background-color: #9933ff;
-    opacity: .5;
-    color: white;
-}
-
-.circle-violet-clicked {
-    background-color: #9933ff;
-    opacity: .8;
-    color: white;
-}
-
-.circle-brown:hover {
-    background-color: #663300;
-    opacity: .5;
-    color: white;
-}
-
-.circle-brown-clicked {
-    background-color: #663300;
-    opacity: .8;
-    color: white;
-}
-
-.circle-yellow:hover {
-    background-color: #ffff33;
-    opacity: .5;
-    color: black;
-}
-
-.circle-yellow-clicked {
-    background-color: #ffff33;
-    opacity: .8;
-    color: black;
-}
-
-.circle-orange:hover {
-    background-color: #ff9900;
-    opacity: .5;
-    color: white;
-}
-
-.circle-orange-clicked {
-    background-color: #ff9900;
-    opacity: .8;
-    color: white;
-}
-
-.circle-black:hover {
-    background-color: black;
-    opacity: .5;
-    color: white;
-}
-
-.circle-black-clicked {
-    background-color: black;
-    opacity: .8;
-    color: white;
-}
-*/

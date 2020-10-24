@@ -20,7 +20,6 @@ let luckySixGame = {
 }
 
 
-
 const allColors = document.querySelectorAll(".balls-colors");
 const adder = document.querySelector("#adder");
 const drumBall = document.querySelector(".drum-ball");
@@ -44,24 +43,32 @@ let index = 0;
 
 let COLORS = Object.keys(BALL_COLOR);
 
+// On start
+
+play.style.pointerEvents = "none";
+randomNum.style.background = GREEN;
+randomNum.style.animation = `tada 1s ease-in`;
+
+allColors.forEach((item) => {
+	item.style.animation = "scale 1s ease-in"
+},200);
+
+
+
 // Event listeners
 
 adder.addEventListener("click", add);
 play.addEventListener("click", playGame);
 
-/* setInterval(function(){
-for (let i = 0; i < allColors.length; i++) {
-	
-	
-		allColors[i].style.animation = "tada 1s ease-in"
-	}
-},500) */
+
 // Pushing chosen sorted numbers to an array
 
 
 const arrayAdd = () => luckySixGame["arrays"][`arr${count}`].push(sortedSlicedArray);
 
 const timer = (ms) => new Promise(res => setTimeout(res, ms));
+
+
 
 const blockAdding = () => {
 	randomNum.style.background = RED;
@@ -72,11 +79,10 @@ const blockAdding = () => {
 	});
 	allColors.forEach((colors) => {
 		colors.style.pointerEvents = "none";
-	})
+	});
 }
 
-randomNum.style.background = GREEN;
-randomNum.style.animation = `tada 1s ease-in`;
+
 
 // Printing numbers to ticket
 
@@ -88,15 +94,23 @@ const ticket = () => sortedSlicedArray.forEach((array, ind) => {
 
 const playStyle = () => play.style.background = GREEN;
 
+
+
 // Reseting cirle colors
 
-const resetCircleColor = () => circle.forEach(value => value.style.border = "1px solid gray")
+const resetCircleColor = () => circle.forEach(value => {
+	value.style.backgroundColor = "transparent";
+	value.style.color = "black";
+	value.style.opacity = "1"
+
+});
+
 
 
 // Generating 6 random numbers
 
 randomNum.addEventListener("mousedown", function () {
-
+	play.style.pointerEvents = "all";
 	resetCircleColor();
 	playStyle();
 	count++;
@@ -108,24 +122,28 @@ randomNum.addEventListener("mousedown", function () {
 		play.style.animation = "tada 1s ease-in";
 	}
 
-})
+});
+
+
 
 // All colors
 
 for (let y = 0; y < allColors.length; y++) {
-
 	allColors[y].addEventListener("mousedown", function () {
+		play.style.pointerEvents = "all";
 		if (!luckySixGame["chosenSix"]) {
 			count++;
 			this.style.pointerEvents = "none";
 			sortedSlicedArray = Object.values(BALL_COLOR)[y][0];
 			for (let i = 0; i < sortedSlicedArray.length; i++) {
-				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border = `1.5px solid ${COLORS[y]}`
+				//document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.border = `1.5px solid ${COLORS[y]}`
+				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.backgroundColor = `${COLORS[y]}`;
+				document.querySelectorAll(`.circle-${COLORS[y]}`)[i].style.opacity = "0.5"
 			}
 			setTimeout(function () {
 				playStyle()
 				resetCircleColor();
-			}, 300)
+			}, 100)
 			arrayAdd();
 			ticket();
 		}
@@ -136,11 +154,14 @@ for (let y = 0; y < allColors.length; y++) {
 	})
 }
 
+function clickedFieldsColor() {
+	circleColor.style.opacity = ".6";
+	circleColor.style.color = "white";
+}
 
 // Numbers choise
 
 for (let i = 0; i < checkedFields.length; i++) {
-
 	adder.style.pointerEvents = "none";
 	checkedFields[i].addEventListener("mousedown", function () {
 		for (let n = 0; n < allColors.length; n++) {
@@ -158,29 +179,39 @@ for (let i = 0; i < checkedFields.length; i++) {
 			for (let j = 0; j < 6; j++) {
 				circleColor = document.getElementById(`${this.id}`).querySelector(".circle");
 				if (this.id == BALL_COLOR["red"][0][j]) {
-					circleColor.style.border = "1.5px solid red"
+					circleColor.style.backgroundColor = "red";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["green"][0][j]) {
-					circleColor.style.border = "1.5px solid #33cc33 "
+					circleColor.style.backgroundColor = "#33cc33";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["blue"][0][j]) {
-					circleColor.style.border = "1.5px solid #1a75ff"
+					circleColor.style.backgroundColor = "#1a75ff";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["violet"][0][j]) {
-					circleColor.style.border = "1.5px solid #9933ff"
+					circleColor.style.backgroundColor = "#9933ff";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["brown"][0][j]) {
-					circleColor.style.border = "1.5px solid #663300"
+					circleColor.style.backgroundColor = "#663300";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["yellow"][0][j]) {
-					circleColor.style.border = "1.5px solid #ffff33"
+					circleColor.style.backgroundColor = "#ffff33";
+					circleColor.style.opacity = ".6";
+					circleColor.style.color = "black";
 
 				} if (this.id == BALL_COLOR["orange"][0][j]) {
-					circleColor.style.border = "1.5px solid #ff9900"
+					circleColor.style.backgroundColor = "#ff9900";
+					clickedFieldsColor();
 
 				} if (this.id == BALL_COLOR["black"][0][j]) {
-					circleColor.style.border = "1.5px solid black"
+					circleColor.style.backgroundColor = "black";
+					clickedFieldsColor();
 				}
+
 			}
 			let clickedNumber = Number(this.id);
 			chosenNumbers.push(clickedNumber);
@@ -199,6 +230,7 @@ for (let i = 0; i < checkedFields.length; i++) {
 // Adding chosen numbers to a ticket
 
 function add() {
+	play.style.pointerEvents = "all";
 	for (let n = 0; n < allColors.length; n++) {
 		allColors[n].style.pointerEvents = "all";
 
@@ -226,6 +258,7 @@ function add() {
 		play.style.animation = "tada 1s ease-in";
 	}
 	adder.style.background = RED;
+	
 
 }
 
@@ -273,7 +306,6 @@ async function playGame() {
 					if (num[j] === luckySixGame["arrays"][`arr${a}`][0][b]) {
 						setTimeout(function () {
 							document.querySelector("#col" + a + (b + 1)).style.fontWeight = "1000";
-
 						}, 3000);
 					}
 				}
@@ -312,11 +344,12 @@ async function playGame() {
 	}
 }
 
-console.time(playGame)
 
 
 
 
+	
+	
 
 
 
