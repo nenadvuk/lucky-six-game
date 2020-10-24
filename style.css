@@ -60,7 +60,7 @@ body {
     text-align: center;
 }
 
-.test {
+.ball-animation {
     animation: bounceIn 3.01s 35;
 }
 
@@ -322,6 +322,10 @@ body {
 @media only screen and (max-width: 425px) {
     [data-aos-delay] {
         transition-delay: 0s !important;
+    }
+
+    .ball-animation {
+        animation: bounceIn 3.05s 35;
     }
     .sum {
         padding-top: 5px !important;
